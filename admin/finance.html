@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Dashboard - LaunchPoint Admin</title>
+    <meta name="description" content="Track income, expenses, and financial metrics on LaunchPoint">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/finance.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard-overview.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="create-product.html" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="customer-detail.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expenses.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Finance Dashboard</h1>
+                    <p>Monitor income, expenses, and profitability</p>
+                </div>
+                <div class="top-actions">
+                    <div class="period-filter">
+                        <button class="period-btn" data-period="daily">Daily</button>
+                        <button class="period-btn" data-period="weekly">Weekly</button>
+                        <button class="period-btn active" data-period="monthly">Monthly</button>
+                        <button class="period-btn" data-period="yearly">Yearly</button>
+                    </div>
+                    <button class="btn btn-primary" id="exportReportBtn">
+                        <i class="fa-solid fa-download"></i>
+                        Export Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon income">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Current Income</div>
+                            <div class="stat-value" id="incomeValue">$45,890.50</div>
+                            <div class="stat-change positive" id="incomeChange">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                +5.2%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon expenses">
+                            <i class="fa-solid fa-arrow-trend-down"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Expenses</div>
+                            <div class="stat-value" id="expensesValue">$12,345.00</div>
+                            <div class="stat-change positive" id="expensesChange">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                +2.1%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon profit">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Net Profit</div>
+                            <div class="stat-value" id="profitValue">$33,545.50</div>
+                            <div class="stat-change positive" id="profitChange">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                +8.3%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon sales">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Sales</div>
+                            <div class="stat-value" id="salesValue">1,204</div>
+                            <div class="stat-change negative" id="salesChange">
+                                <i class="fa-solid fa-arrow-down"></i>
+                                -1.5%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="charts-grid">
+                    <!-- Income vs Expenses Chart -->
+                    <div class="chart-card large">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Income vs. Expenses Overview</h3>
+                                <p class="chart-subtitle">Financial performance over time</p>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="incomeExpensesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Budget Overview -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Budget Overview</h3>
+                                <p class="chart-subtitle">Current spending vs budget</p>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <div class="budget-items">
+                                <div class="budget-item">
+                                    <div class="budget-header">
+                                        <span class="budget-name">Marketing Spend</span>
+                                        <span class="budget-amount">$8,500 / $10,000</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 85%;"></div>
+                                    </div>
+                                    <div class="budget-percentage">85%</div>
+                                </div>
+
+                                <div class="budget-item">
+                                    <div class="budget-header">
+                                        <span class="budget-name">R&D</span>
+                                        <span class="budget-amount">$3,200 / $5,000</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 64%;"></div>
+                                    </div>
+                                    <div class="budget-percentage">64%</div>
+                                </div>
+
+                                <div class="budget-item">
+                                    <div class="budget-header">
+                                        <span class="budget-name">Operational Costs</span>
+                                        <span class="budget-amount">$11,750 / $12,000</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill warning" style="width: 98%;"></div>
+                                    </div>
+                                    <div class="budget-percentage">98%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Transactions -->
+            <section class="transactions-section">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Transactions</h2>
+                    <button class="btn btn-ghost btn-sm" id="viewAllTransactionsBtn">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="table-card">
+                    <div class="table-container">
+                        <table class="transactions-table">
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionsTableBody">
+                                <!-- Transactions will be rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/JS/finance.js"></script>
+</body>
+
+</html>

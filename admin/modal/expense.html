@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense - LaunchPoint</title>
+    <meta name="description" content="Add and manage your business expenses on LaunchPoint">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/expense.css">
+</head>
+
+<body>
+    <div class="expense-wrapper">
+        <div class="expense-overlay"></div>
+
+        <div class="expense-container">
+            <!-- Header -->
+            <div class="expense-header">
+                <div class="header-content">
+                    <div class="header-icon">
+                        <i class="fa-solid fa-receipt"></i>
+                    </div>
+                    <div class="header-text">
+                        <h1>Add New Expense</h1>
+                        <p>Track your business expenses efficiently</p>
+                    </div>
+                </div>
+                <button class="close-btn" id="closeBtn" aria-label="Close">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Form -->
+            <form class="expense-form" id="expenseForm">
+                <!-- Expense Name -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-tag"></i>
+                        Expense Name
+                    </label>
+                    <input type="text" class="form-input" id="expenseName" placeholder="e.g., Monthly Server Hosting"
+                        required />
+                </div>
+
+                <!-- Category & Amount -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fa-solid fa-list"></i>
+                            Category
+                        </label>
+                        <div class="select-wrapper">
+                            <select class="form-select" id="category" required>
+                                <option value="">Select category</option>
+                                <option value="software">Software & Tools</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="hosting">Hosting & Domain</option>
+                                <option value="utilities">Utilities</option>
+                                <option value="hardware">Hardware</option>
+                                <option value="subscriptions">Subscriptions</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                            Amount
+                        </label>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">$</span>
+                            <input type="number" class="form-input has-prefix" id="amount" placeholder="0.00"
+                                step="0.01" min="0" required />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date & Payment Method -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fa-solid fa-calendar"></i>
+                            Date
+                        </label>
+                        <input type="date" class="form-input" id="expenseDate" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fa-solid fa-credit-card"></i>
+                            Payment Method
+                        </label>
+                        <div class="select-wrapper">
+                            <select class="form-select" id="paymentMethod">
+                                <option value="card">Credit Card</option>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="cash">Cash</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-align-left"></i>
+                        Description / Notes
+                        <span class="label-optional">(Optional)</span>
+                    </label>
+                    <textarea class="form-textarea" id="description"
+                        placeholder="Add any additional details about this expense..." rows="4"></textarea>
+                </div>
+
+                <!-- Recurring Expense Toggle -->
+                <div class="form-group">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="toggle-input" id="recurring" />
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text">
+                            <i class="fa-solid fa-rotate"></i>
+                            This is a recurring expense
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">
+                        <i class="fa-solid fa-times"></i>
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="fa-solid fa-check"></i>
+                        Add Expense
+                    </button>
+                </div>
+            </form>
+
+            <!-- Recent Expenses -->
+            <div class="recent-expenses" id="recentExpenses">
+                <h3>Recent Expenses</h3>
+                <div class="expenses-list" id="expensesList">
+                    <!-- Expenses will be rendered by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/expense.js"></script>
+</body>
+
+</html>

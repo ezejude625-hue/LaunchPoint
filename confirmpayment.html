@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Purchase - LaunchPoint</title>
+    <meta name="description" content="One final step before you launch your online presence!">
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <link rel="stylesheet" href="CSS/confirmpayment.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fa-solid fa-rocket"></i>
+                <h2>LaunchPoint</h2>
+            </div>
+            <div class="secure">
+                <i class="fa-solid fa-lock"></i>
+                <span>Secure Checkout</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content">
+            <!-- Success Badge -->
+            <div class="launch-badge">
+                <i class="fa-solid fa-rocket"></i>
+                <span>Almost there! One final step...</span>
+            </div>
+
+            <h1 class="title">Review & Confirm</h1>
+            <p class="subtitle">You're seconds away from launching your online presence!</p>
+
+            <div class="card">
+                <div class="card-body">
+                    <!-- Payment Method Section -->
+                    <div class="section">
+                        <h3>
+                            <i class="fa-solid fa-credit-card"></i>
+                            Payment Method
+                        </h3>
+                        <div class="payment-method">
+                            <div class="payment-info">
+                                <div class="card-logo">
+                                    <i class="fa-brands fa-cc-visa"></i>
+                                </div>
+                                <div class="payment-details">
+                                    <p class="card-number">Visa ending in •••• 1234</p>
+                                    <p class="exp">Expires 08/26</p>
+                                </div>
+                            </div>
+                            <button class="change-btn">
+                                <i class="fa-solid fa-pen"></i>
+                                Change
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Order Summary Section -->
+                    <div class="section">
+                        <h3>
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            Your Launch Kit
+                        </h3>
+                        <div id="order-items-list">
+                            <!-- Items will be rendered by JS -->
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Totals Section -->
+                    <div class="totals">
+                        <div class="total-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal-display">$0.00</span>
+                        </div>
+                        <div class="total-row" id="discount-display-row" style="display: none;">
+                            <span class="discount-label">
+                                Discount <span class="promo-badge" id="promo-badge"></span>
+                            </span>
+                            <span class="discount-value" id="discount-display">-$0.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Tax & Processing</span>
+                            <span id="tax-display">$0.00</span>
+                        </div>
+                        <div class="total-row total">
+                            <span>Total Due</span>
+                            <span id="total-display">$0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- What You Get Section -->
+                    <div class="benefits-section">
+                        <h4>What You'll Get:</h4>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Instant Download</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fa-solid fa-infinity"></i>
+                                <span>Lifetime Updates</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fa-solid fa-headset"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>30-Day Guarantee</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button class="confirm-btn" id="confirmBtn">
+                        <i class="fa-solid fa-rocket"></i>
+                        Complete Purchase & Launch
+                        <span id="confirm-amount">$0.00</span>
+                    </button>
+                    <a class="cancel-link" href="cart.html">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Back to cart
+                    </a>
+
+                    <!-- Security Notice -->
+                    <div class="security-notice">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Protected by 256-bit SSL encryption</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo"><i class="fa-solid fa-rocket"></i> LaunchPoint</div>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-top: 1rem;">
+                        Launch your online presence quickly and professionally.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="marketplace.html">Templates</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal (Hidden by default) 
+    <div id="successModal" class="success-modal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>Your templates are ready for download</p>
+            <div class="success-details">
+                <p>A confirmation email has been sent to your inbox with download links and receipt.</p>
+            </div>
+            <button class="success-btn" onclick="redirectToDownloads()">
+                <i class="fa-solid fa-download"></i>
+                Go to Downloads
+            </button>
+        </div>
+    </div>
+    -->
+
+    <script src="JS/confirmpayment.js"></script>
+</body>
+
+</html>

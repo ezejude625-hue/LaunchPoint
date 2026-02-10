@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - LaunchPoint</title>
+  <meta name="description" content="Manage your LaunchPoint projects, downloads, and account from your dashboard" />
+
+  <!-- font-awesome -->
+  <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/CSS/dashboard.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="/homepage.html" class="logo">
+        <i class="fa-solid fa-rocket"></i>
+        <span>LaunchPoint</span>
+      </a>
+      <div class="header-actions">
+        <div class="search-wrapper">
+          <i class="fa-solid fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Search products..." id="searchInput" />
+        </div>
+        <div class="icon-buttons">
+          <button class="icon-button" aria-label="Shopping cart" id="cartBtn">
+            <i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+          <button class="icon-button" aria-label="Notifications" id="notificationsBtn">
+            <i class="fa-solid fa-bell"></i>&nbsp;Notifications
+            <span class="notification-badge">3</span>
+          </button>
+        </div>
+        <div class="user-menu" id="userMenu">
+          <div class="user-avatar" id="userAvatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="user-info">
+            <span class="user-name" id="userName">John Doe
+              <!-- <option value="account">Account Settings</option>
+              <option value="dashboard">Dashboard</option>
+              <option value="logout">Logout</option> -->
+            </span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dashboard-container">
+    <div class="dashboard-wrapper">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-sticky">
+          <!-- Profile Card -->
+          <div class="profile-card">
+            <div class="profile-avatar-wrapper">
+              <div class="profile-avatar" id="profileAvatar">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <button class="edit-avatar-btn" aria-label="Edit profile picture">
+                <i class="fa-solid fa-camera"></i>
+              </button>
+            </div>
+            <div class="profile-info">
+              <h3 id="profileName">Welcome, John!</h3>
+              <p id="joinedDate">Member since Jan 2025</p>
+            </div>
+            <a href="account-setting.html" class="btn btn-secondary">
+              <i class="fa-solid fa-gear"></i>
+              Account Settings
+            </a>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="quick-actions-card">
+            <h3 class="card-title">Quick Actions</h3>
+            <div class="action-list">
+              <a href="/marketplace.html" class="action-item">
+                <div class="action-icon">
+                  <i class="fa-solid fa-store"></i>
+                </div>
+                <span>Browse Marketplace</span>
+              </a>
+              <a href="downloads.html" class="action-item">
+                <div class="action-icon">
+                  <i class="fa-solid fa-download"></i>
+                </div>
+                <span>My Downloads</span>
+              </a>
+              <a href="/invoices.html" class="action-item">
+                <div class="action-icon">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </div>
+                <span>View Invoices</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Dashboard Content -->
+      <div class="dashboard-content">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+          <div class="welcome-text">
+            <h1>Dashboard</h1>
+            <p>Welcome back! Here's what's happening with your account today.</p>
+          </div>
+          <button class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>
+            New Project
+          </button>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i class="fa-solid fa-download"></i>
+            </div>
+            <div class="stat-content">
+              <p class="stat-label">Downloads</p>
+              <h3 class="stat-value" id="downloadsCount">12</h3>
+              <p class="stat-change positive">
+                <i class="fa-solid fa-arrow-up"></i>
+                3 this month
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+            <div class="stat-content">
+              <p class="stat-label">Orders</p>
+              <h3 class="stat-value" id="ordersCount">8</h3>
+              <p class="stat-change positive">
+                <i class="fa-solid fa-arrow-up"></i>
+                2 pending
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="stat-content">
+              <p class="stat-label">Wishlist</p>
+              <h3 class="stat-value" id="wishlistCount">5</h3>
+              <p class="stat-change neutral">
+                <i class="fa-solid fa-minus"></i>
+                No change
+              </p>
+            </div>
+          </div>
+
+          <!-- <div class="stat-card">
+            <div class="stat-icon orange">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="stat-content">
+              <p class="stat-label">Courses</p>
+              <h3 class="stat-value" id="coursesCount">3</h3>
+              <p class="stat-change positive">
+                <i class="fa-solid fa-arrow-up"></i>
+                1 in progress
+              </p>
+            </div>
+          </div> -->
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="section-card">
+          <div class="section-header">
+            <h2>Recent Activity</h2>
+            <a href="#" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div class="activity-list" id="activityList">
+            <div class="activity-item">
+              <div class="activity-icon blue">
+                <i class="fa-solid fa-download"></i>
+              </div>
+              <div class="activity-content">
+                <h4>Downloaded: Professional Branding Kit</h4>
+                <p>2 hours ago</p>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon green">
+                <i class="fa-solid fa-check-circle"></i>
+              </div>
+              <div class="activity-content">
+                <h4>Order Completed: E-Commerce Theme</h4>
+                <p>1 day ago</p>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon purple">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="activity-content">
+                <h4>Added to Wishlist: React UI Components</h4>
+                <p>3 days ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- My Downloads -->
+        <div class="section-card">
+          <div class="section-header">
+            <h2>My Downloads</h2>
+            <a href="#" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div class="downloads-grid" id="downloadsGrid">
+            <div class="download-item">
+              <div class="download-preview">
+                <i class="fa-solid fa-file-zipper"></i>
+              </div>
+              <div class="download-info">
+                <h4>Professional Branding Kit</h4>
+                <p>Downloaded 2 hours ago</p>
+              </div>
+              <button class="btn btn-ghost btn-sm">
+                <i class="fa-solid fa-download"></i>
+                Download
+              </button>
+            </div>
+            <div class="download-item">
+              <div class="download-preview">
+                <i class="fa-solid fa-file-code"></i>
+              </div>
+              <div class="download-info">
+                <h4>SaaS Landing Page Bundle</h4>
+                <p>Downloaded 5 days ago</p>
+              </div>
+              <button class="btn btn-ghost btn-sm">
+                <i class="fa-solid fa-download"></i>
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/JS/dashboard.js"></script>
+</body>
+
+</html>

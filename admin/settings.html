@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - LaunchPoint Admin</title>
+    <meta name="description" content="Configure LaunchPoint marketplace settings">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/settings.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard-overview.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="create-product.html" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="customer-detail.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="finance.html" class="nav-item">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expenses.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item active">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Settings</h1>
+                    <p>Manage your marketplace configurations and preferences</p>
+                </div>
+            </div>
+
+            <!-- Settings Tabs -->
+            <div class="settings-tabs">
+                <button class="tab-btn active" data-tab="general">
+                    <i class="fa-solid fa-sliders"></i>
+                    General
+                </button>
+                <button class="tab-btn" data-tab="payments">
+                    <i class="fa-solid fa-credit-card"></i>
+                    Payments
+                </button>
+                <button class="tab-btn" data-tab="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    Email
+                </button>
+                <button class="tab-btn" data-tab="notifications">
+                    <i class="fa-solid fa-bell"></i>
+                    Notifications
+                </button>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="settings-content">
+                <!-- General Settings -->
+                <div class="tab-content active" id="general">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fa-solid fa-building"></i>
+                                Marketplace Information
+                            </h3>
+                            <p>Configure the basic details of your marketplace</p>
+                        </div>
+                        <div class="card-body">
+                            <form id="generalForm">
+                                <div class="form-group">
+                                    <label for="siteName">Site Name</label>
+                                    <input type="text" id="siteName" class="form-input"
+                                        value="LaunchPoint Marketplace" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="siteUrl">Site URL</label>
+                                    <input type="url" id="siteUrl" class="form-input" value="https://launchpoint.com" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="siteDescription">Description</label>
+                                    <textarea id="siteDescription" class="form-input"
+                                        rows="3">The ultimate marketplace for digital products and services</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Logo Upload</label>
+                                    <div class="upload-area" id="uploadArea">
+                                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                                        <div class="upload-text">
+                                            <p>Drag & drop your logo here, or <span class="upload-link">click to
+                                                    browse</span></p>
+                                            <p class="upload-hint">PNG, JPG, SVG up to 5MB</p>
+                                        </div>
+                                        <input type="file" id="logoInput" class="file-input" accept="image/*" />
+                                    </div>
+                                    <div class="upload-preview" id="uploadPreview" style="display: none;">
+                                        <img id="previewImage" src="" alt="Logo preview" />
+                                        <button type="button" class="remove-btn" id="removeFile">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-ghost" id="cancelGeneral">Cancel</button>
+                            <button class="btn btn-primary" id="saveGeneral">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Settings -->
+                <div class="tab-content" id="payments">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fa-solid fa-money-bill-wave"></i>
+                                Payment Gateways
+                            </h3>
+                            <p>Configure your payment gateway API keys and settings</p>
+                        </div>
+                        <div class="card-body">
+                            <form id="paymentForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="stripePublic">Stripe Public Key</label>
+                                        <div class="password-input">
+                                            <input type="password" id="stripePublic" class="form-input"
+                                                value="pk_test_xxxxxxxxxxxxxxxx" />
+                                            <button type="button" class="toggle-password" data-target="stripePublic">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="stripeSecret">Stripe Secret Key</label>
+                                        <div class="password-input">
+                                            <input type="password" id="stripeSecret" class="form-input"
+                                                value="sk_test_xxxxxxxxxxxxxxxx" />
+                                            <button type="button" class="toggle-password" data-target="stripeSecret">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="paystackKey">Paystack API Key</label>
+                                        <div class="password-input">
+                                            <input type="password" id="paystackKey" class="form-input"
+                                                value="pk_test_xxxxxxxxxxxxxxxx" />
+                                            <button type="button" class="toggle-password" data-target="paystackKey">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cryptoKey">Crypto Payments API Key</label>
+                                        <div class="password-input">
+                                            <input type="password" id="cryptoKey" class="form-input"
+                                                value="crypto_xxxxxxxxxxxxxxxx" />
+                                            <button type="button" class="toggle-password" data-target="cryptoKey">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-ghost" id="cancelPayment">Cancel</button>
+                            <button class="btn btn-primary" id="savePayment">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Settings -->
+                <div class="tab-content" id="email">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fa-solid fa-at"></i>
+                                Email Configuration
+                            </h3>
+                            <p>Configure SMTP settings for email notifications</p>
+                        </div>
+                        <div class="card-body">
+                            <form id="emailForm">
+                                <div class="form-group">
+                                    <label for="smtpHost">SMTP Host</label>
+                                    <input type="text" id="smtpHost" class="form-input" value="smtp.gmail.com" />
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="smtpPort">SMTP Port</label>
+                                        <input type="number" id="smtpPort" class="form-input" value="587" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="smtpUsername">SMTP Username</label>
+                                        <input type="text" id="smtpUsername" class="form-input"
+                                            value="noreply@launchpoint.com" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="smtpPassword">SMTP Password</label>
+                                    <div class="password-input">
+                                        <input type="password" id="smtpPassword" class="form-input"
+                                            value="••••••••••••" />
+                                        <button type="button" class="toggle-password" data-target="smtpPassword">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-ghost" id="cancelEmail">Cancel</button>
+                            <button class="btn btn-primary" id="saveEmail">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notification Settings -->
+                <div class="tab-content" id="notifications">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fa-solid fa-bell-concierge"></i>
+                                Notification Preferences
+                            </h3>
+                            <p>Choose what notifications you want to receive</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="toggle-group">
+                                <div class="toggle-item">
+                                    <div class="toggle-info">
+                                        <div class="toggle-label">New Orders</div>
+                                        <div class="toggle-description">Get notified when a new order is placed</div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="toggle-item">
+                                    <div class="toggle-info">
+                                        <div class="toggle-label">New Customers</div>
+                                        <div class="toggle-description">Get notified when a new customer registers</div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="toggle-item">
+                                    <div class="toggle-info">
+                                        <div class="toggle-label">Product Reviews</div>
+                                        <div class="toggle-description">Get notified when customers leave reviews</div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="toggle-item">
+                                    <div class="toggle-info">
+                                        <div class="toggle-label">Low Stock Alerts</div>
+                                        <div class="toggle-description">Get notified when product stock is low</div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="toggle-item">
+                                    <div class="toggle-info">
+                                        <div class="toggle-label">Weekly Reports</div>
+                                        <div class="toggle-description">Receive weekly sales and analytics reports</div>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" />
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-ghost" id="cancelNotifications">Cancel</button>
+                            <button class="btn btn-primary" id="saveNotifications">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/JS/settings.js"></script>
+</body>
+
+</html>

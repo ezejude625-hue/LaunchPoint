@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management - LaunchPoint Admin</title>
+    <meta name="description" content="Manage customers and user accounts on LaunchPoint marketplace">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/customer-detail.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="create-product.html" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expense.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Customer Management</h1>
+                    <p>View and manage customer accounts</p>
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-ghost" id="exportBtn">
+                        <i class="fa-solid fa-download"></i>
+                        Export
+                    </button>
+                    <button class="btn btn-primary" id="addCustomerBtn">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Add Customer
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search & Filter -->
+            <div class="toolbar-card">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput"
+                        placeholder="Search by name, email, or ID..." />
+                </div>
+                <div class="filter-chips">
+                    <button class="chip active" data-status="all">
+                        <i class="fa-solid fa-users"></i>
+                        All Customers
+                    </button>
+                    <button class="chip" data-status="active">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Active
+                    </button>
+                    <button class="chip" data-status="suspended">
+                        <i class="fa-solid fa-circle-pause"></i>
+                        Suspended
+                    </button>
+                    <button class="chip" data-status="pending">
+                        <i class="fa-solid fa-clock"></i>
+                        Pending
+                    </button>
+                </div>
+            </div>
+
+            <!-- Customers Table -->
+            <div class="table-card">
+                <div class="table-container">
+                    <table class="customers-table">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Email</th>
+                                <th>Joined</th>
+                                <th>Orders</th>
+                                <th>Total Spent</th>
+                                <th>Status</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customersTableBody">
+                            <!-- Customers will be rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="table-footer">
+                    <div class="pagination-info">
+                        Showing <span id="showingStart">1</span> to <span id="showingEnd">10</span>
+                        of <span id="totalCustomers">128</span> customers
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="pagination-btn" id="prevBtn" disabled>
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <div class="page-numbers" id="pageNumbers">
+                            <!-- Page numbers will be rendered by JS -->
+                        </div>
+                        <button class="pagination-btn" id="nextBtn">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Customer Details Modal -->
+    <div class="modal" id="customerModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Customer Details</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Customer details will be rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/customer-detail.js"></script>
+</body>
+
+</html>

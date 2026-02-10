@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sign Up - LaunchPoint</title>
+    <meta name="description" content="Create your LaunchPoint account and start building your online presence today.">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/signup.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-rocket"></i>
+                <span>LaunchPoint</span>
+            </a>
+            <div class="header-links">
+                <span class="help-text">Already have an account?</span>
+                <a href="login.html" class="btn btn-ghost">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="signup-container">
+        <div class="signup-grid">
+            <!-- Left Side - Branding -->
+            <div class="branding-section">
+                <div class="branding-content">
+                    <div class="brand-badge">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span>LaunchPoint</span>
+                    </div>
+                    <h1>Start Building Your Dream Today</h1>
+                    <p>Join thousands of creators and businesses launching beautiful online experiences.</p>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Professional Templates</h4>
+                                <p>Access 100+ stunning templates</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>No Coding Required</h4>
+                                <p>Build and launch in minutes</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>24/7 Support</h4>
+                                <p>Get help whenever you need it</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Form -->
+            <div class="form-section">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h2>Create Your Account</h2>
+                        <p>Get started with your free account today</p>
+                    </div>
+
+                    <!-- Social Sign Up -->
+                    <div class="social-signup">
+                        <button class="social-btn google-btn">
+                            <i class="fa-brands fa-google"></i>
+                            <span>Continue with Google</span>
+                        </button>
+                        <button class="social-btn github-btn">
+                            <i class="fa-brands fa-github"></i>
+                            <span>Continue with GitHub</span>
+                        </button>
+                    </div>
+
+                    <div class="divider">
+                        <span>Or sign up with email</span>
+                    </div>
+
+                    <!-- Signup Form -->
+                    <form class="signup-form" id="signupForm">
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label for="full-name" class="form-label">Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-user input-icon"></i>
+                                <input type="text" id="full-name" name="full-name" class="form-input"
+                                    placeholder="Enter your full name" autocomplete="name" required />
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="email" name="email" class="form-input"
+                                    placeholder="you@example.com" autocomplete="email" required />
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-lock input-icon"></i>
+                                <input type="password" id="password" name="password" class="form-input password-input"
+                                    placeholder="Create a strong password" autocomplete="new-password" required />
+                                <button type="button" class="password-toggle" data-target="password">
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength" id="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill"></div>
+                                </div>
+                                <p class="strength-text">Password strength: <span id="strength-label">Weak</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="form-group">
+                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-lock input-icon"></i>
+                                <input type="password" id="confirm-password" name="confirm-password"
+                                    class="form-input password-input" placeholder="Re-enter your password"
+                                    autocomplete="new-password" required />
+                                <button type="button" class="password-toggle" data-target="confirm-password">
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                </button>
+                            </div>
+                            <p class="password-match" id="password-match"></p>
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="terms-wrapper">
+                            <input type="checkbox" id="terms" name="terms" class="terms-checkbox" required />
+                            <label for="terms" class="terms-label">
+                                I agree to the <a href="#" class="terms-link">Terms of Service</a> and
+                                <a href="#" class="terms-link">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fa-solid fa-rocket"></i>
+                            Create Account
+                        </button>
+
+                        <!-- Login Link -->
+                        <p class="login-text">
+                            Already have an account?
+                            <a href="login.html" class="login-link">Sign In</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/JS/signup.js"></script>
+</body>
+
+</html>

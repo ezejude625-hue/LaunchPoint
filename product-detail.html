@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - LaunchPoint</title>
+
+  <!-- font-awesome -->
+  <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/product-detail.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <i class="fa-solid fa-rocket"></i>
+          <span>LaunchPoint</span>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+          <i class="fa-solid fa-bars"></i>
+        </label>
+
+        <nav class="nav-menu">
+          <a href="homepage.html#marketplace" class="nav-link">Marketplace</a>
+          <button class="btn-icon" id="cartBtn">
+            <i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart
+            <span class="cart-badge" id="cartCount">0</span>
+          </button>
+          <a href="homepage.html#categories" class="nav-link">Categories</a>
+          <a href="homepage.html#features" class="nav-link">Features</a>
+          <a href="homepage.html#pricing" class="nav-link">Pricing</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs">
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="index.html#marketplace">Marketplace</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span class="breadcrumb-current" id="breadcrumbCategory">UI Kits & Templates</span>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span class="breadcrumb-current" id="breadcrumbProduct">Product Name</span>
+      </nav>
+
+      <!-- Product Grid -->
+      <div class="product-grid">
+        <!-- Left Column -->
+        <div class="left-column">
+          <!-- Product Title -->
+          <div class="product-header">
+            <h1 class="product-title" id="productTitle">SaaS Landing Page Template</h1>
+            <div class="product-meta">
+              <span class="meta-item">
+                <i class="fa-solid fa-user"></i>
+                By <a href="#" class="seller-link" id="sellerName">Tech Innovators Inc.</a>
+              </span>
+              <span class="meta-item">
+                <i class="fa-solid fa-star"></i>
+                <span id="productRating">4.8</span>
+                <span class="rating-count">(<span id="reviewCount">24</span> reviews)</span>
+              </span>
+              <span class="meta-item">
+                <i class="fa-solid fa-download"></i>
+                <span id="downloadCount">487</span> sales
+              </span>
+            </div>
+          </div>
+
+          <!-- Image Carousel -->
+          <div class="carousel-section">
+            <div class="main-image" id="mainImage"></div>
+            <div class="thumbnails-container">
+              <div class="thumbnails" id="thumbnails">
+                <!-- Thumbnails rendered by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="tabs-section">
+            <div class="tabs-header">
+              <button class="tab-btn active" data-tab="overview">
+                <i class="fa-solid fa-align-left"></i>
+                Overview
+              </button>
+              <button class="tab-btn" data-tab="features">
+                <i class="fa-solid fa-list-check"></i>
+                Features
+              </button>
+              <button class="tab-btn" data-tab="files">
+                <i class="fa-solid fa-folder-open"></i>
+                What's Included
+              </button>
+              <button class="tab-btn" data-tab="reviews">
+                <i class="fa-solid fa-star"></i>
+                Reviews
+              </button>
+            </div>
+
+            <div class="tabs-content">
+              <div class="tab-pane active" id="overview">
+                <div class="content-prose" id="productDescription">
+                  <!-- Description rendered by JS -->
+                </div>
+              </div>
+
+              <div class="tab-pane" id="features">
+                <div class="features-grid" id="productFeatures">
+                  <!-- Features rendered by JS -->
+                </div>
+              </div>
+
+              <div class="tab-pane" id="files">
+                <div class="files-list" id="productFiles">
+                  <!-- Files rendered by JS -->
+                </div>
+              </div>
+
+              <div class="tab-pane" id="reviews">
+                <div class="reviews-overview">
+                  <div class="rating-summary">
+                    <div class="rating-score" id="reviewRatingScore">4.8</div>
+                    <div class="rating-stars" id="reviewStars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <div class="rating-text">Based on <span id="reviewTotalCount">24</span> reviews</div>
+                  </div>
+                  <div class="rating-bars">
+                    <div class="rating-bar">
+                      <span class="bar-label">5</span>
+                      <div class="bar-track">
+                        <div class="bar-fill" style="width: 85%"></div>
+                      </div>
+                      <span class="bar-percent">85%</span>
+                    </div>
+                    <div class="rating-bar">
+                      <span class="bar-label">4</span>
+                      <div class="bar-track">
+                        <div class="bar-fill" style="width: 10%"></div>
+                      </div>
+                      <span class="bar-percent">10%</span>
+                    </div>
+                    <div class="rating-bar">
+                      <span class="bar-label">3</span>
+                      <div class="bar-track">
+                        <div class="bar-fill" style="width: 3%"></div>
+                      </div>
+                      <span class="bar-percent">3%</span>
+                    </div>
+                    <div class="rating-bar">
+                      <span class="bar-label">2</span>
+                      <div class="bar-track">
+                        <div class="bar-fill" style="width: 2%"></div>
+                      </div>
+                      <span class="bar-percent">2%</span>
+                    </div>
+                    <div class="rating-bar">
+                      <span class="bar-label">1</span>
+                      <div class="bar-track">
+                        <div class="bar-fill" style="width: 0%"></div>
+                      </div>
+                      <span class="bar-percent">0%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Purchase Card -->
+        <div class="right-column">
+          <div class="purchase-card">
+            <div class="price-section">
+              <div class="price-label">Price</div>
+              <div class="price-value" id="productPrice">$79.00</div>
+            </div>
+
+            <div class="license-section">
+              <label for="licenseSelect" class="license-label">License Type</label>
+              <select id="licenseSelect" class="license-select">
+                <option value="regular">Regular License - $79.00</option>
+                <option value="extended">Extended License - $299.00</option>
+              </select>
+              <p class="license-info">
+                <i class="fa-solid fa-circle-info"></i>
+                Regular license for single project
+              </p>
+            </div>
+
+            <div class="purchase-actions">
+              <button class="btn btn-primary btn-large" id="buyNowBtn">
+                <i class="fa-solid fa-shopping-cart"></i>
+                Buy Now
+              </button>
+              <button class="btn btn-ghost btn-large" id="addToCartBtn">
+                <i class="fa-solid fa-cart-plus"></i>
+                Add to Cart
+              </button>
+            </div>
+
+            <div class="payment-badges">
+              <p class="payment-label">Secure payment with:</p>
+              <div class="payment-icons">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+                <i class="fa-brands fa-cc-stripe"></i>
+              </div>
+            </div>
+
+            <div class="product-info-list">
+              <div class="info-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <div>
+                  <div class="info-label">Category</div>
+                  <div class="info-value" id="productCategoryInfo">UI Kits & Templates</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fa-solid fa-calendar"></i>
+                <div>
+                  <div class="info-label">Last Updated</div>
+                  <div class="info-value" id="productDate">Oct 26, 2024</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fa-solid fa-file"></i>
+                <div>
+                  <div class="info-label">Files Included</div>
+                  <div class="info-value">HTML, CSS, JS, Docs</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seller Card -->
+          <div class="seller-card">
+            <h3 class="seller-card-title">About the Seller</h3>
+            <div class="seller-profile">
+              <div class="seller-avatar" id="sellerAvatar">TI</div>
+              <div class="seller-info">
+                <div class="seller-name" id="sellerNameCard">Tech Innovators Inc.</div>
+                <div class="seller-stats">
+                  <span class="seller-stat">
+                    <i class="fa-solid fa-star"></i>
+                    4.9
+                  </span>
+                  <span class="seller-stat">
+                    <i class="fa-solid fa-box"></i>
+                    12 Products
+                  </span>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline btn-full">View Profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fa-solid fa-rocket"></i>
+            <span>LaunchPoint</span>
+          </div>
+          <p class="footer-tagline">Launch your digital products marketplace</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="#marketplace">Marketplace</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#features">Features</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">License</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="JS/product-detail.js"></script>
+</body>
+
+</html>

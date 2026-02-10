@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - LaunchPoint</title>
+    <meta name="description" content="View and manage your LaunchPoint order history and purchase records">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/order-history.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="dashboard.html" class="logo">
+                <i class="fa-solid fa-rocket"></i>
+                <span>LaunchPoint</span>
+            </a>
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search orders..." id="searchInput" />
+                </div>
+                <div class="icon-buttons">
+                    <button class="icon-button" aria-label="Shopping cart" id="cartBtn">
+                        <i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                    <button class="icon-button" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>&nbsp;Notifications
+                    </button>
+                </div>
+                <a href="account-setting.html" class="user-menu">
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span class="user-name" id="userName">John Doe</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="orders-container">
+        <div class="orders-wrapper">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-text">
+                    <h1>Order History</h1>
+                    <p>View and manage your past purchases</p>
+                </div>
+                <button class="btn btn-primary" id="exportBtn">
+                    <i class="fa-solid fa-download"></i>
+                    Export History
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="filter-chips">
+                    <button class="chip active" data-status="all">
+                        <i class="fa-solid fa-list"></i>
+                        <span>All Orders</span>
+                    </button>
+                    <button class="chip" data-status="completed">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Completed</span>
+                    </button>
+                    <button class="chip" data-status="processing">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Processing</span>
+                    </button>
+                    <button class="chip" data-status="refunded">
+                        <i class="fa-solid fa-undo"></i>
+                        <span>Refunded</span>
+                    </button>
+                </div>
+                <button class="btn btn-ghost" id="clearFiltersBtn">
+                    <i class="fa-solid fa-times"></i>
+                    Clear Filters
+                </button>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="table-container">
+                <div class="table-responsive">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Product Name</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <!-- Orders will be rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+                <div class="empty-content">
+                    <h2>No Orders Found</h2>
+                    <p>You haven't made any purchases yet. Start shopping to see your orders here.</p>
+                </div>
+                <a href="marketplace.html" class="btn btn-primary">
+                    <i class="fa-solid fa-store"></i>
+                    Browse Marketplace
+                </a>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <button class="page-btn" id="prevBtn" disabled>
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="page-numbers" id="pageNumbers">
+                    <!-- Page numbers will be rendered by JS -->
+                </div>
+                <button class="page-btn" id="nextBtn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/JS/order-history.js"></script>
+</body>
+
+</html>

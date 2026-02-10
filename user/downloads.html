@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Downloads - LaunchPoint</title>
+  <meta name="description" content="View and manage your purchased digital products and downloads" />
+
+  <!-- font-awesome -->
+  <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/CSS/downloads.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="dashboard.html" class="logo">
+        <i class="fa-solid fa-rocket"></i>
+        <span>LaunchPoint</span>
+      </a>
+      <div class="header-actions">
+        <div class="search-wrapper">
+          <i class="fa-solid fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Search downloads..." id="searchInput" />
+        </div>
+        <div class="icon-buttons">
+          <button class="icon-button" aria-label="Shopping cart" id="cartBtn">
+            <i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+          <button class="icon-button" aria-label="Notifications">
+            <i class="fa-solid fa-bell"></i>&nbsp;Notifications
+          </button>
+        </div>
+        <a href="account-setting.html" class="user-menu">
+          <div class="user-avatar" id="userAvatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <span class="user-name" id="userName">John Doe</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="downloads-container">
+    <div class="downloads-wrapper">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="header-text">
+          <h1>My Downloads</h1>
+          <p>Access all your purchased digital products</p>
+        </div>
+        <a href="/marketplace.html" class="btn btn-primary">
+          <i class="fa-solid fa-store"></i>
+          Browse Marketplace
+        </a>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="filter-wrapper">
+          <i class="fa-solid fa-filter filter-icon"></i>
+          <input type="text" class="filter-input" placeholder="Filter downloads..." id="filterInput" />
+        </div>
+        <div class="sort-wrapper">
+          <label class="sort-label">Sort by:</label>
+          <select class="sort-select" id="sortSelect">
+            <option value="date">Purchase Date</option>
+            <option value="name">Name (A-Z)</option>
+            <option value="size">File Size</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Downloads Grid -->
+      <div class="downloads-grid" id="downloadsGrid">
+        <!-- Downloads will be rendered by JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-icon">
+          <i class="fa-solid fa-folder-open"></i>
+        </div>
+        <div class="empty-content">
+          <h2>No Downloads Yet</h2>
+          <p>You haven't purchased any items yet. Start exploring the marketplace to find amazing digital products.</p>
+        </div>
+        <a href="marketplace.html" class="btn btn-primary">
+          <i class="fa-solid fa-store"></i>
+          Explore Marketplace
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/JS/downloads.js"></script>
+</body>
+
+</html>

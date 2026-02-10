@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Product - LaunchPoint Admin</title>
+    <meta name="description" content="Add and manage digital products on LaunchPoint marketplace">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/create-product.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expense.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Add New Product</h1>
+                    <p>Create a new digital product for the marketplace</p>
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-ghost" id="previewBtn">
+                        <i class="fa-solid fa-eye"></i>
+                        Preview
+                    </button>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form class="product-form" id="productForm">
+                <!-- Basic Information -->
+                <div class="form-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <h3>Basic Information</h3>
+                            <p>Enter the core details of your product</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fa-solid fa-tag"></i>
+                                Product Name
+                            </label>
+                            <input type="text" class="form-input" id="productName"
+                                placeholder="e.g., Ultimate SaaS Boilerplate" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fa-solid fa-align-left"></i>
+                                Product Description
+                            </label>
+                            <textarea class="form-textarea" id="productDescription"
+                                placeholder="Describe your product in detail. Include features, technologies used, and what makes it unique..."
+                                rows="6" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category & Pricing -->
+                <div class="form-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <h3>Category & Pricing</h3>
+                            <p>Classify and price your product</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fa-solid fa-cube"></i>
+                                    Product Type
+                                </label>
+                                <select class="form-select" id="productType" required>
+                                    <option value="">Select type...</option>
+                                    <option value="website">🌐 Website Template</option>
+                                    <option value="script">💻 Script/Code</option>
+                                    <option value="api">🔌 API Tool</option>
+                                    <option value="ai">🤖 AI Tool</option>
+                                    <option value="app">📱 Mobile App</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fa-solid fa-folder"></i>
+                                    Category
+                                </label>
+                                <select class="form-select" id="category" required>
+                                    <option value="">Select category...</option>
+                                    <option value="templates">Web Templates</option>
+                                    <option value="backend">Backend Scripts</option>
+                                    <option value="mobile">Mobile Apps</option>
+                                    <option value="tools">Developer Tools</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                    Price (USD)
+                                </label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" class="form-input has-prefix" id="price" placeholder="49.99"
+                                        min="0" step="0.01" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fa-solid fa-tags"></i>
+                                    License Type
+                                </label>
+                                <select class="form-select" id="license" required>
+                                    <option value="">Select license...</option>
+                                    <option value="single">Single Use</option>
+                                    <option value="extended">Extended</option>
+                                    <option value="unlimited">Unlimited</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fa-solid fa-link"></i>
+                                    Live Demo URL
+                                    <span class="label-optional">(Optional)</span>
+                                </label>
+                                <input type="url" class="form-input" id="demoUrl"
+                                    placeholder="https://demo.yourproduct.com" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fa-solid fa-book"></i>
+                                    Documentation URL
+                                    <span class="label-optional">(Optional)</span>
+                                </label>
+                                <input type="url" class="form-input" id="docsUrl"
+                                    placeholder="https://docs.yourproduct.com" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media & Files -->
+                <div class="form-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-images"></i>
+                        </div>
+                        <div>
+                            <h3>Media & Files</h3>
+                            <p>Upload product files and preview images</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="upload-grid">
+                            <div class="upload-section">
+                                <label class="upload-label">
+                                    <i class="fa-solid fa-file-zipper"></i>
+                                    Product File
+                                </label>
+                                <div class="upload-area" id="productFileArea">
+                                    <input type="file" class="upload-input" id="productFile" accept=".zip,.rar,.7z" />
+                                    <div class="upload-content">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                        <p><strong>Click to upload</strong> or drag and drop</p>
+                                        <p class="upload-hint">ZIP, RAR (Max 500MB)</p>
+                                    </div>
+                                </div>
+                                <div class="file-preview" id="filePreview"></div>
+                            </div>
+
+                            <div class="upload-section">
+                                <label class="upload-label">
+                                    <i class="fa-solid fa-image"></i>
+                                    Gallery Images
+                                </label>
+                                <div class="upload-area" id="imagesArea">
+                                    <input type="file" class="upload-input" id="productImages" accept="image/*"
+                                        multiple />
+                                    <div class="upload-content">
+                                        <i class="fa-solid fa-images"></i>
+                                        <p><strong>Click to upload</strong> or drag and drop</p>
+                                        <p class="upload-hint">PNG, JPG, GIF (Max 5MB each)</p>
+                                    </div>
+                                </div>
+                                <div class="images-preview" id="imagesPreview"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Options -->
+                <div class="form-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <div>
+                            <h3>Additional Options</h3>
+                            <p>Configure product settings and visibility</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="toggle-group">
+                            <label class="toggle-item">
+                                <div class="toggle-info">
+                                    <i class="fa-solid fa-eye"></i>
+                                    <div>
+                                        <strong>Publish Product</strong>
+                                        <p>Make this product visible on marketplace</p>
+                                    </div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="publishToggle" checked />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </label>
+
+                            <label class="toggle-item">
+                                <div class="toggle-info">
+                                    <i class="fa-solid fa-star"></i>
+                                    <div>
+                                        <strong>Featured Product</strong>
+                                        <p>Display in featured section</p>
+                                    </div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="featuredToggle" />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-ghost" id="cancelBtn">
+                        <i class="fa-solid fa-times"></i>
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="saveDraftBtn">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save as Draft
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="addProductBtn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Product
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="/JS/create-product.js"></script>
+</body>
+
+</html>

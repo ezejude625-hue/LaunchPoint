@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>My Wishlist - LaunchPoint</title>
+    <meta name="description" content="View and manage your saved products on LaunchPoint">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/wishlist.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="dashboard.html" class="logo">
+                <i class="fa-solid fa-rocket"></i>
+                <span>LaunchPoint</span>
+            </a>
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search products..." id="searchInput" />
+                </div>
+                <div class="icon-buttons">
+                    <button class="icon-button active" aria-label="Wishlist">
+                        <i class="fa-solid fa-heart"></i>&nbsp;Wishlist
+                        <span class="wishlist-badge" id="wishlistBadge">0</span>
+                    </button>
+                    <button class="icon-button" aria-label="Shopping cart" id="cartBtn">
+                        <i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                    <button class="icon-button" aria-label="Notifications">
+                        <i class="fa-solid fa-bell"></i>&nbsp;Notifications
+                    </button>
+                </div>
+                <a href="account-setting.html" class="user-menu">
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span class="user-name" id="userName">John Doe</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="wishlist-container">
+        <div class="wishlist-wrapper">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-text">
+                    <h1>My Wishlist</h1>
+                    <p>You have <span id="wishlistCount">0</span> items saved</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-ghost" id="clearAllBtn">
+                        <i class="fa-solid fa-trash"></i>
+                        Clear All
+                    </button>
+                    <button class="btn btn-primary" id="moveAllBtn">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        Move All to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be rendered by JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fa-solid fa-heart-crack"></i>
+                </div>
+                <div class="empty-content">
+                    <h2>Your Wishlist is Empty</h2>
+                    <p>Save your favorite products to easily find them later.</p>
+                </div>
+                <a href="marketplace.html" class="btn btn-primary">
+                    <i class="fa-solid fa-store"></i>
+                    Browse Marketplace
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/JS/wishlist.js"></script>
+</body>
+
+</html>

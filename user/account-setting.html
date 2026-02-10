@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Account Settings - LaunchPoint</title>
+    <meta name="description" content="Manage your LaunchPoint account settings, profile, security, and preferences.">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/account-setting.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="homepage.html" class="logo">
+                <i class="fa-solid fa-rocket"></i>
+                <span>LaunchPoint</span>
+            </a>
+            <div class="header-actions">
+                <a href="/user/dashboard.html" class="btn btn-ghost">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="settings-container">
+        <div class="settings-wrapper">
+            <!-- Sidebar -->
+            <aside class="settings-sidebar">
+                <div class="sidebar-sticky">
+                    <!-- User Profile -->
+                    <div class="user-profile">
+                        <div class="user-avatar" id="userAvatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <h3 id="userName">John Doe</h3>
+                            <p id="userEmail">john@example.com</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <nav class="sidebar-nav">
+                        <a href="#profile" class="nav-item active" data-section="profile">
+                            <i class="fa-solid fa-user"></i>
+                            <span>Profile Settings</span>
+                        </a>
+                        <a href="#security" class="nav-item" data-section="security">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Security</span>
+                        </a>
+                        <a href="#notifications" class="nav-item" data-section="notifications">
+                            <i class="fa-solid fa-bell"></i>
+                            <span>Notifications</span>
+                        </a>
+                        <a href="#billing" class="nav-item" data-section="billing">
+                            <i class="fa-solid fa-credit-card"></i>
+                            <span>Billing</span>
+                        </a>
+                        <a href="#preferences" class="nav-item" data-section="preferences">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span>Preferences</span>
+                        </a>
+                    </nav>
+
+                    <!-- Logout Button -->
+                    <button class="btn btn-danger btn-logout" id="logoutBtn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Log Out
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Settings Content -->
+            <div class="settings-content">
+                <!-- Profile Settings -->
+                <section class="settings-section active" id="profile-section">
+                    <div class="section-header">
+                        <h1>Profile Settings</h1>
+                        <p>Manage your personal information and profile</p>
+                    </div>
+
+                    <div class="section-card">
+                        <!-- Avatar Upload -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Profile Picture</h3>
+                                <p>Update your avatar to personalize your account</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="avatar-upload">
+                                    <div class="avatar-preview" id="avatarPreview">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="avatar-actions">
+                                        <input type="file" id="avatarInput" accept="image/*" hidden>
+                                        <button class="btn btn-primary" id="uploadAvatarBtn">
+                                            <i class="fa-solid fa-upload"></i>
+                                            Upload Photo
+                                        </button>
+                                        <button class="btn btn-ghost" id="removeAvatarBtn">
+                                            <i class="fa-solid fa-trash"></i>
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Personal Information</h3>
+                                <p>Update your name and email address</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Full Name</label>
+                                        <input type="text" class="form-input" id="fullName"
+                                            placeholder="Enter your full name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <input type="email" class="form-input" id="emailAddress"
+                                            placeholder="your@email.com">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bio -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Bio</h3>
+                                <p>Tell us a little about yourself</p>
+                            </div>
+                            <div class="setting-control">
+                                <textarea class="form-textarea" id="userBio" rows="4"
+                                    placeholder="Write a short bio..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="section-footer">
+                            <button class="btn btn-ghost" id="cancelProfileBtn">Cancel</button>
+                            <button class="btn btn-primary" id="saveProfileBtn">
+                                <i class="fa-solid fa-check"></i>
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Settings -->
+                <section class="settings-section" id="security-section">
+                    <div class="section-header">
+                        <h1>Security Settings</h1>
+                        <p>Manage your password and account security</p>
+                    </div>
+
+                    <div class="section-card">
+                        <!-- Change Password -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Change Password</h3>
+                                <p>Update your password regularly to keep your account secure</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Current Password</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" class="form-input" id="currentPassword"
+                                                placeholder="••••••••">
+                                            <button type="button" class="password-toggle" data-target="currentPassword">
+                                                <i class="fa-solid fa-eye-slash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">New Password</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" class="form-input" id="newPassword"
+                                                placeholder="••••••••">
+                                            <button type="button" class="password-toggle" data-target="newPassword">
+                                                <i class="fa-solid fa-eye-slash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Confirm New Password</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" class="form-input" id="confirmPassword"
+                                                placeholder="••••••••">
+                                            <button type="button" class="password-toggle" data-target="confirmPassword">
+                                                <i class="fa-solid fa-eye-slash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" id="changePasswordBtn" style="margin-top: 1rem;">
+                                    <i class="fa-solid fa-lock"></i>
+                                    Change Password
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Two-Factor Authentication -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Two-Factor Authentication</h3>
+                                <p>Add an extra layer of security to your account</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="info-box">
+                                    <div class="info-icon">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4 id="twoFAStatus">2FA is currently disabled</h4>
+                                        <p>Protect your account from unauthorized access with two-factor authentication
+                                        </p>
+                                    </div>
+                                    <button class="btn btn-primary" id="enable2FABtn">Enable 2FA</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Active Sessions -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Active Sessions</h3>
+                                <p>Manage devices where you're currently logged in</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="sessions-list" id="sessionsList">
+                                    <!-- Sessions will be rendered by JS -->
+                                </div>
+                                <button class="btn btn-danger" id="logoutAllBtn" style="margin-top: 1rem;">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    Log Out All Devices
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notification Settings -->
+                <section class="settings-section" id="notifications-section">
+                    <div class="section-header">
+                        <h1>Notification Settings</h1>
+                        <p>Manage how you receive notifications</p>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Email Notifications</h3>
+                                <p>Choose what emails you'd like to receive</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="toggle-list">
+                                    <div class="toggle-item">
+                                        <div class="toggle-info">
+                                            <h4>Product Updates</h4>
+                                            <p>News, updates, and tips about LaunchPoint</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="emailUpdates" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="toggle-item">
+                                        <div class="toggle-info">
+                                            <h4>Purchase Receipts</h4>
+                                            <p>Receipts and invoices for your purchases</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="emailReceipts" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="toggle-item">
+                                        <div class="toggle-info">
+                                            <h4>Marketing Emails</h4>
+                                            <p>Promotions, offers, and newsletters</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="emailMarketing">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-footer">
+                            <button class="btn btn-primary" id="saveNotificationsBtn">
+                                <i class="fa-solid fa-check"></i>
+                                Save Preferences
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Billing Settings -->
+                <section class="settings-section" id="billing-section">
+                    <div class="section-header">
+                        <h1>Billing & Subscription</h1>
+                        <p>Manage your subscription and payment methods</p>
+                    </div>
+
+                    <div class="section-card">
+                        <!-- Current Plan -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Current Plan</h3>
+                                <p>Your active subscription</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="plan-card">
+                                    <div class="plan-info">
+                                        <h3>Pro Plan</h3>
+                                        <p class="plan-price">$19/month</p>
+                                        <p class="plan-status">Next billing: Feb 29, 2026</p>
+                                    </div>
+                                    <button class="btn btn-ghost">Change Plan</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Payment Method</h3>
+                                <p>Manage your payment methods</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="payment-card">
+                                    <i class="fa-brands fa-cc-visa"></i>
+                                    <div class="payment-info">
+                                        <p>Visa ending in 4242</p>
+                                        <p class="payment-expiry">Expires 12/2027</p>
+                                    </div>
+                                    <button class="btn btn-ghost">Update</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Invoice History -->
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Invoice History</h3>
+                                <p>View and download your past invoices</p>
+                            </div>
+                            <div class="setting-control">
+                                <a href="invoice.html" class="btn btn-ghost">
+                                    <i class="fa-solid fa-file-invoice"></i>
+                                    View Invoices
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Preferences -->
+                <section class="settings-section" id="preferences-section">
+                    <div class="section-header">
+                        <h1>Preferences</h1>
+                        <p>Customize your LaunchPoint experience</p>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Language</h3>
+                                <p>Choose your preferred language</p>
+                            </div>
+                            <div class="setting-control">
+                                <select class="form-select" id="languageSelect">
+                                    <option value="en" selected>English</option>
+                                    <option value="es">Español</option>
+                                    <option value="fr">Français</option>
+                                    <option value="de">Deutsch</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <div class="setting-label">
+                                <h3>Theme</h3>
+                                <p>Choose your interface theme</p>
+                            </div>
+                            <div class="setting-control">
+                                <div class="theme-options">
+                                    <label class="theme-option">
+                                        <input type="radio" name="theme" value="light" checked>
+                                        <div class="theme-card">
+                                            <i class="fa-solid fa-sun"></i>
+                                            <span>Light</span>
+                                        </div>
+                                    </label>
+                                    <label class="theme-option">
+                                        <input type="radio" name="theme" value="dark">
+                                        <div class="theme-card">
+                                            <i class="fa-solid fa-moon"></i>
+                                            <span>Dark</span>
+                                        </div>
+                                    </label>
+                                    <label class="theme-option">
+                                        <input type="radio" name="theme" value="auto">
+                                        <div class="theme-card">
+                                            <i class="fa-solid fa-circle-half-stroke"></i>
+                                            <span>Auto</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-footer">
+                            <button class="btn btn-primary" id="savePreferencesBtn">
+                                <i class="fa-solid fa-check"></i>
+                                Save Preferences
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/JS/account-setting.js"></script>
+</body>
+
+</html>

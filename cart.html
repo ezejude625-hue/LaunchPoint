@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Launch Kit - LaunchPoint</title>
+    <meta name="description"
+        content="Review your templates and tools. You're minutes away from launching your professional online presence." />
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <link rel="stylesheet" href="CSS/cart.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo"><i class="fa-solid fa-rocket"></i> LaunchPoint</div>
+            <input type="checkbox" id="menu">
+            <label for="menu" class="icon">&#9776;</label>
+            <div class="nav-wrapper">
+                <nav>
+                    <a href="/homepage.html"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
+                    <a href="/marketplace.html"><i class="fa-solid fa-store"></i>&nbsp;Marketplace</a>
+                    <a href="/checkout.html"><i class="fa-solid fa-money-bill-transfer"></i>&nbsp;Checkout</a>
+                    <a href=""></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Your Launch Kit</h1>
+                <a href="marketplace.html" class="continue-shopping">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    <span>Browse More Templates</span>
+                </a>
+            </div>
+
+            <!-- Cart Grid -->
+            <div class="cart-grid">
+                <!-- Cart Items -->
+                <div>
+                    <!-- Empty Cart State -->
+                    <div id="empty-cart" class="empty-cart-state" style="display: none;">
+                        <div class="empty-cart-icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <h2 class="empty-cart-title">Your Launch Kit is Empty</h2>
+                        <p class="empty-cart-text">Start building your professional online presence by browsing our
+                            collection of templates, branding kits, and powerful tools.</p>
+                        <a href="marketplace.html" class="btn btn-primary">Explore Marketplace →</a>
+                    </div>
+
+                    <!-- Cart Items Container -->
+                    <div id="cart-items" class="cart-items-container">
+                        <!-- Cart items rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div>
+                    <div class="summary-container">
+                        <div class="summary-card">
+                            <h3 class="summary-title">Order Summary</h3>
+                            <div>
+                                <div class="summary-row">
+                                    <span>Subtotal</span>
+                                    <span id="subtotal" class="summary-row-value">$0.00</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Tax</span>
+                                    <span>Calculated at checkout</span>
+                                </div>
+                            </div>
+                            <div class="coupon-section">
+                                <label class="coupon-label">Promo Code</label>
+                                <div class="coupon-input-group">
+                                    <input id="coupon-input" type="text" class="coupon-input"
+                                        placeholder="Have a promo code?" />
+                                    <button onclick="applyCoupon()" class="btn btn-coupon">Apply</button>
+                                </div>
+                                <div id="coupon-message" class="coupon-message"></div>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span id="total">$0.00</span>
+                            </div>
+                            <a href="checkout.html" class="btn btn-checkout">Proceed to Checkout →</a>
+
+                            <!-- Trust Badges -->
+                            <div class="trust-badges">
+                                <div class="trust-badge">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <span>Secure Payment</span>
+                                </div>
+                                <div class="trust-badge">
+                                    <i class="fa-solid fa-download"></i>
+                                    <span>Instant Delivery</span>
+                                </div>
+                                <div class="trust-badge">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    <span>30-Day Guarantee</span>
+                                </div>
+                                <div class="trust-badge">
+                                    <i class="fa-solid fa-rotate"></i>
+                                    <span>Lifetime Updates</span>
+                                </div>
+                            </div>
+
+                            <!-- Support Text -->
+                            <p class="support-text">Questions? Our support team is here to help 24/7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="recommendations">
+                <h2 class="recommendations-title">Complete Your Launch Kit</h2>
+                <div class="recommendations-grid">
+                    <div class="product-card">
+                        <div class="product-image"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhuJnjBZ1QAX_lFhhNpQQsh7pzzHeLlU9emz5tEWgzWoX0g4X6eqZLCcimbs6GGMIFGLTAKtWzBhuh1bG2NwU7SOWnGvqHefgabIDe8jN8McuTvIe-H8HGQWWW2pM5p2TRwVfzOAFze6Ne9rhVlW0-ABuahIF3w-YHWaIUX4b0c9nOPEIpqVsA9qLwq8S1Wl3QNGVckidmRBGGE-C4KJ1kaiqvzWcIXlTT9LoP49PXeUIPS9ANLcd2DMRy0CrZzdzeHU9DJ_qybdw");'>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-name">Professional Branding Kit</h4>
+                            <p class="product-category">Brand Identity Package</p>
+                            <div class="product-footer">
+                                <p class="product-price">$149</p>
+                                <button class="add-to-cart-btn">
+                                    Add to Cart <span class="material-symbols-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBS5wAVFqwzXR9Vko6Crzo-NUZRbu_rKK0yhCiIgvt74ormkv5GZK4uK3qsuZ_KgKBzRTcCzJ0qoi01b9uoQqfWzEE-ZpWU6vubhBuGAKEa5CfcFjX90Fsujd1xIyNuX_nIg8p6v6wWXDZQa87ksNtm5SJvXgpc3Q6VN80C0OH3YlSNiLIHwkVgRI5OZ4ATw39avb9OOT1r_B2Gwm-hlM9wV9IFJmQMAio0mAaF3TPXHxbyYE3QQegtcZEcAvYDD-t8u0Zm8Gfa2fY");'>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-name">E-Commerce Website Theme</h4>
+                            <p class="product-category">Website Template</p>
+                            <div class="product-footer">
+                                <p class="product-price">$199</p>
+                                <button class="add-to-cart-btn">
+                                    Add to Cart <span class="material-symbols-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBrUqX1FgVKJRnWoej_cYDwuzUj65ToYEZPK0TTOdd4stiLHeXsqY6SDS5xGpIjq8gaSpcWcKAUvMUWjxkN_yotjWxNZaJ1Hsv4ck9kDoR_FuHfm271KsMk6u_AuJhyCQ8xAzDwx8nChgQglohDdChGS7Hj7GD1VC9EDx3-4emxxoRTq3NiuQVwEYYwBumnX2gkvPpLN_uWNwMxGEUv7hxVRsZ850Qt1IYDwI7-Wz0-WK0l23WBCZrKVqhRKd6YuJGaxbn_n5ITcSo");'>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-name">Landing Page Template Bundle</h4>
+                            <p class="product-category">Landing Page Pack</p>
+                            <div class="product-footer">
+                                <p class="product-price">$89</p>
+                                <button class="add-to-cart-btn">
+                                    Add to Cart <span class="material-symbols-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9A3GMLiN6Dnth_pDmNz3xen3yMj07yKbFTZA5fC3uxv-Iycrr3eQpNXBLjc84hMGRdtd86dprKrP_ItkKrZhr16KjwaIUaZOCPmLSlITYr777yd85ijRfNJra2NHYxGqm4uIa5V7tVs7f4S5yPouBDBL4oJjJU3ZmsRkTdeynssv0lwSpovtBi3ECSFu7W6Q6pXpuUvDIREMQuLVQ8ylTpcRdteATIhAgCcfIVaB0lZF6AJKCMa9OCVcxu6tf8UJ5iYw4nXAvJxc");'>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-name">Marketing Integration Pack</h4>
+                            <p class="product-category">Integration Tools</p>
+                            <div class="product-footer">
+                                <p class="product-price">$49</p>
+                                <button class="add-to-cart-btn">
+                                    Add to Cart <span class="material-symbols-outlined">add_shopping_cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo"><i class="fa-solid fa-rocket"></i> LaunchPoint</div>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-top: 1rem;">
+                        Launch your online presence quickly and professionally.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="marketplace.html">Templates</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/cart.js"></script>
+</body>
+
+</html>

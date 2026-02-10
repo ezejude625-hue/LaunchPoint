@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - LaunchPoint Admin</title>
+    <meta name="description" content="Generate and manage reports on LaunchPoint marketplace">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/reports.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard-overview.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="create-product.html" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="customer-detail.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="finance.html" class="nav-item">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expenses.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+                <a href="analytic-dashboard.html" class="nav-item active">
+                    <i class="fa-solid fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Reports</h1>
+                    <p>Generate, view, and manage various types of reports</p>
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-ghost" id="scheduleReportBtn">
+                        <i class="fa-solid fa-clock"></i>
+                        Schedule Report
+                    </button>
+                    <button class="btn btn-primary" id="exportAllBtn">
+                        <i class="fa-solid fa-download"></i>
+                        Export All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Create Report Card -->
+            <section class="create-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>
+                            <i class="fa-solid fa-file-lines"></i>
+                            Create New Report
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="reportForm" class="report-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="reportType">Report Type</label>
+                                    <select id="reportType" class="form-select">
+                                        <option value="sales">Sales Report</option>
+                                        <option value="users">User Activity</option>
+                                        <option value="products">Product Performance</option>
+                                        <option value="revenue">Revenue by Period</option>
+                                        <option value="custom">Custom Report</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="dateRange">Date Range</label>
+                                    <select id="dateRange" class="form-select">
+                                        <option value="7days">Last 7 Days</option>
+                                        <option value="30days">Last 30 Days</option>
+                                        <option value="thisMonth">This Month</option>
+                                        <option value="lastMonth">Last Month</option>
+                                        <option value="custom">Custom Range</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="format">Export Format</label>
+                                    <select id="format" class="form-select">
+                                        <option value="pdf">PDF Document</option>
+                                        <option value="excel">Excel Spreadsheet</option>
+                                        <option value="csv">CSV File</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-ghost" id="saveTemplateBtn">
+                                    <i class="fa-solid fa-bookmark"></i>
+                                    Save as Template
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    Generate Report
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Report Templates -->
+            <section class="templates-section">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-layer-group"></i>
+                    Pre-defined Templates
+                </h2>
+                <div class="templates-grid">
+                    <div class="template-card" data-template="sales">
+                        <div class="template-icon sales">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <div class="template-info">
+                            <h4>Sales Report</h4>
+                            <p>Detailed sales analytics</p>
+                        </div>
+                    </div>
+
+                    <div class="template-card" data-template="users">
+                        <div class="template-icon users">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="template-info">
+                            <h4>User Activity</h4>
+                            <p>Track user engagement</p>
+                        </div>
+                    </div>
+
+                    <div class="template-card" data-template="products">
+                        <div class="template-icon products">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="template-info">
+                            <h4>Product Performance</h4>
+                            <p>Top-performing products</p>
+                        </div>
+                    </div>
+
+                    <div class="template-card" data-template="revenue">
+                        <div class="template-icon revenue">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                        <div class="template-info">
+                            <h4>Revenue Analysis</h4>
+                            <p>Analyze revenue trends</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Report History -->
+            <section class="history-section">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Report History
+                </h2>
+                <div class="table-card">
+                    <div class="table-container">
+                        <table class="reports-table">
+                            <thead>
+                                <tr>
+                                    <th>Report Name</th>
+                                    <th>Type</th>
+                                    <th>Date Generated</th>
+                                    <th>Generated By</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reportsTableBody">
+                                <!-- Reports will be rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/JS/reports.js"></script>
+</body>
+
+</html>

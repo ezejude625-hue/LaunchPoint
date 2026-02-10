@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaunchPoint - Launch Your Online Presence Fast & Beautiful</title>
+    <meta name="description"
+        content="LaunchPoint helps creators, startups, and businesses launch, brand, and grow their online presence with easy tools and beautiful templates.">
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <link rel="stylesheet" href="CSS/LaunchPoint.css">
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="nav">
+            <div class="logo">
+                <i class="fa-solid fa-rocket"></i> LaunchPoint
+            </div>
+
+            <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
+
+            <ul id="menu" class="menu" aria-expanded="false">
+                <li><a href="#features" onclick="closeMenu()">Features</a></li>
+                <li><a href="#how-it-works" onclick="closeMenu()">How It Works</a></li>
+                <li><a href="#testimonials" onclick="closeMenu()">Testimonials</a></li>
+                <li class="button-container">
+                    <button class="btn btn-outline" id="btnLogin" onclick="closeMenu()">Log In</button>
+                    <button class="btn btn-primary" id="btnSignup" onclick="closeMenu()">Sign Up</button>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="badge">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Launch Your Business in Minutes
+                        </div>
+                        <h1>
+                            Launch Your Online Presence
+                            <span class="gradient-text">Fast & Beautiful</span>
+                        </h1>
+                        <p>
+                            Professional landing pages, powerful branding tools, and seamless integrations.
+                            Everything you need to build, launch, and grow your business online.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary">
+                                Start Building Free &rarr;
+                            </button>
+                            <button class="btn btn-outline">Watch Demo</button>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <div class="stat-number">10k+</div>
+                                <div class="stat-label">Active Users</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">50k+</div>
+                                <div class="stat-label">Sites Launched</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">99%</div>
+                                <div class="stat-label">Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                            alt="LaunchPoint Dashboard">
+                        <div class="floating-badge badge-1"><i class="fa-solid fa-rocket"></i> Fast Launch</div>
+                        <div class="floating-badge badge-2"><i class="fa-solid fa-wand-magic-sparkles"></i>
+                            Beautiful
+                            Design
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>
+                        Everything You Need to
+                        <span class="gradient-text">Launch & Grow</span>
+                    </h2>
+                    <p>Powerful features designed to help you build your online presence quickly and
+                        professionally.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon"><i class="fa-solid fa-file-lines"></i></div>
+                        <h3>Landing Page Templates</h3>
+                        <p>Professionally designed layouts you can customize in minutes, not hours.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
+                        <h3>Branding Tools</h3>
+                        <p>Create a consistent brand identity with colors, fonts, and style kits.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon"><i class="fa-solid fa-plug"></i></div>
+                        <h3>Marketing Integrations</h3>
+                        <p>Connect with email tools, analytics, CRM platforms, and more.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <h3>Lead Generation</h3>
+                        <p>Capture customers with forms, pop-ups, and strategic CTAs.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>SEO & Performance</h3>
+                        <p>Fast loading pages optimized to rank high in search results.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                        <h3>E-Commerce Ready</h3>
+                        <p>Sell products or services with smooth checkout experiences.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon"><i class="fa-solid fa-chart-area"></i></div>
+                        <h3>Analytics & Growth</h3>
+                        <p>Track performance and make data-driven decisions to scale.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>
+                        Launch in
+                        <span class="gradient-text">5 Simple Steps</span>
+                    </h2>
+                    <p>Our streamlined workflow gets you from idea to launch faster than ever.</p>
+                </div>
+                <div class="steps">
+                    <div class="step fade-in">
+                        <div class="step-icon">
+                            <i class="fa-solid fa-hand-point-up"></i>
+                            <div class="step-number">1</div>
+                        </div>
+                        <h3>Choose</h3>
+                        <p>Select from professional templates</p>
+                    </div>
+                    <div class="step fade-in">
+                        <div class="step-icon">
+                            <i class="fa-solid fa-palette"></i>
+                            <div class="step-number">2</div>
+                        </div>
+                        <h3>Customize</h3>
+                        <p>Brand it with your style and content</p>
+                    </div>
+                    <div class="step fade-in">
+                        <div class="step-icon">
+                            <i class="fa-solid fa-plug"></i>
+                            <div class="step-number">3</div>
+                        </div>
+                        <h3>Integrate</h3>
+                        <p>Connect your favorite tools</p>
+                    </div>
+                    <div class="step fade-in">
+                        <div class="step-icon">
+                            <i class="fa-solid fa-rocket"></i>
+                            <div class="step-number">4</div>
+                        </div>
+                        <h3>Launch</h3>
+                        <p>Go live in minutes, not days</p>
+                    </div>
+                    <div class="step fade-in">
+                        <div class="step-icon">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <div class="step-number">5</div>
+                        </div>
+                        <h3>Track</h3>
+                        <p>Monitor and optimize performance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>
+                        Loved by
+                        <span class="gradient-text">Businesses Worldwide</span>
+                    </h2>
+                    <p>Join thousands of satisfied customers who've launched their dreams with LaunchPoint.
+                    </p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-in">
+                        <div class="stars">
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "LaunchPoint helped us go from concept to live site in just 3 days. The
+                            templates are beautiful
+                            and
+                            the customization is incredibly intuitive."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SC</div>
+                            <div class="author-info">
+                                <h4>Sarah Chen</h4>
+                                <p>Founder, TechStart</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <div class="stars">
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "The integration capabilities are outstanding. We connected our entire marketing
+                            stack without
+                            writing a single line of code."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div class="author-info">
+                                <h4>Marcus Rodriguez</h4>
+                                <p>Marketing Director</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <div class="stars">
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                            <span class="star">&starf;</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "I launched my online store with LaunchPoint and saw a 40% increase in
+                            conversions compared to
+                            my
+                            old site. The SEO tools are top-notch."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ET</div>
+                            <div class="author-info">
+                                <h4>Emily Thompson</h4>
+                                <p>E-commerce Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Launch Your Success?</h2>
+                    <p>
+                        Join thousands of businesses that have transformed their online presence with
+                        LaunchPoint.
+                        Start building your dream site today.
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-white">
+                            Start Building Free →
+                        </button>
+                        <button class="btn btn-outline__white">Schedule a Demo</button>
+                    </div>
+                    <div class="benefits">
+                        <div class="benefit">&check; No credit card required</div>
+                        <div class="benefit">&check; 14-day free trial</div>
+                        <div class="benefit">&check; Cancel anytime</div>
+                        <div class="benefit">&check; Full feature access</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo"><i class="fa-solid fa-rocket"></i> LaunchPoint</div>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-top: 1rem;">
+                        Launch your online presence quickly and professionally.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#">Templates</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/LaunchPoint.js"></script>
+</body>
+
+</html>

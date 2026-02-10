@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Coupon - LaunchPoint Admin</title>
+    <meta name="description" content="Create and manage discount coupons for LaunchPoint marketplace">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/coupon.css">
+</head>
+
+<body>
+    <div class="coupon-wrapper">
+        <div class="coupon-overlay"></div>
+
+        <div class="coupon-container">
+            <!-- Header -->
+            <div class="coupon-header">
+                <div class="header-content">
+                    <div class="header-icon">
+                        <i class="fa-solid fa-ticket"></i>
+                    </div>
+                    <div class="header-text">
+                        <h1>Create Coupon Code</h1>
+                        <p>Set up promotional discounts for your products</p>
+                    </div>
+                </div>
+                <button class="close-btn" id="closeBtn" aria-label="Close">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Form -->
+            <form class="coupon-form" id="couponForm">
+                <!-- Coupon Code -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-barcode"></i>
+                        Coupon Code
+                    </label>
+                    <div class="input-with-action">
+                        <input type="text" class="form-input" id="couponCode" placeholder="SUMMER2025" required />
+                        <button type="button" class="action-btn" id="generateBtn" title="Generate random code">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Discount Type -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-tags"></i>
+                        Discount Type
+                    </label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="discountType" value="percentage" checked />
+                            <span class="radio-content">
+                                <i class="fa-solid fa-percent"></i>
+                                Percentage
+                            </span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="discountType" value="fixed" />
+                            <span class="radio-content">
+                                <i class="fa-solid fa-dollar-sign"></i>
+                                Fixed Amount
+                            </span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="discountType" value="free-shipping" />
+                            <span class="radio-content">
+                                <i class="fa-solid fa-truck"></i>
+                                Free Shipping
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Discount Value -->
+                <div class="form-group" id="valueGroup">
+                    <label class="form-label">
+                        <i class="fa-solid fa-calculator"></i>
+                        Discount Value
+                    </label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix" id="valuePrefix">%</span>
+                        <input type="number" class="form-input has-prefix" id="discountValue" placeholder="15" min="0"
+                            step="0.01" />
+                    </div>
+                </div>
+
+                <!-- Validity Period -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fa-solid fa-calendar-day"></i>
+                            Start Date
+                        </label>
+                        <input type="date" class="form-input" id="startDate" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fa-solid fa-calendar-xmark"></i>
+                            End Date
+                        </label>
+                        <input type="date" class="form-input" id="endDate" required />
+                    </div>
+                </div>
+
+                <!-- Usage Limits -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fa-solid fa-hashtag"></i>
+                            Total Usage Limit
+                        </label>
+                        <input type="number" class="form-input" id="totalLimit" placeholder="100" min="1" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fa-solid fa-user"></i>
+                            Limit Per User
+                        </label>
+                        <input type="number" class="form-input" id="userLimit" placeholder="1" min="1" />
+                    </div>
+                </div>
+
+                <!-- Minimum Purchase -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-wallet"></i>
+                        Minimum Purchase Amount
+                        <span class="label-optional">(Optional)</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">$</span>
+                        <input type="number" class="form-input has-prefix" id="minPurchase" placeholder="50.00" min="0"
+                            step="0.01" />
+                    </div>
+                </div>
+
+                <!-- Applicable Products -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-box"></i>
+                        Applicable Products
+                    </label>
+                    <select class="form-select" id="products" multiple size="5">
+                        <option value="all">All Products</option>
+                        <option value="websites">Website Templates</option>
+                        <option value="scripts">Scripts & Code</option>
+                        <option value="api">API Tools</option>
+                        <option value="ai">AI Tools</option>
+                        <option value="apps">Mobile Apps</option>
+                        <option value="courses">E-Learning</option>
+                    </select>
+                    <p class="help-text">Hold Ctrl/Cmd to select multiple</p>
+                </div>
+
+                <!-- Status Toggle -->
+                <div class="form-group">
+                    <label class="toggle-label">
+                        <input type="checkbox" class="toggle-input" id="isActive" checked />
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text">
+                            <i class="fa-solid fa-toggle-on"></i>
+                            Activate coupon immediately
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">
+                        <i class="fa-solid fa-times"></i>
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="fa-solid fa-check"></i>
+                        Create Coupon
+                    </button>
+                </div>
+            </form>
+
+            <!-- Preview Card -->
+            <div class="preview-card" id="previewCard">
+                <h3>Coupon Preview</h3>
+                <div class="preview-content">
+                    <div class="preview-code" id="previewCode">SUMMER2025</div>
+                    <div class="preview-details">
+                        <div class="preview-item">
+                            <span class="preview-label">Discount:</span>
+                            <span class="preview-value" id="previewDiscount">15% OFF</span>
+                        </div>
+                        <div class="preview-item">
+                            <span class="preview-label">Valid Until:</span>
+                            <span class="preview-value" id="previewExpiry">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/coupon.js"></script>
+</body>
+
+</html>

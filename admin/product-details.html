@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - LaunchPoint Admin</title>
+    <meta name="description" content="View and manage product details on LaunchPoint marketplace">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/product-details.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard-overview.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="products.html" class="nav-item active">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="customer-detail.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="finance.html" class="nav-item">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expenses.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Breadcrumbs -->
+            <nav class="breadcrumbs">
+                <a href="dashboard-overview.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <a href="products.html">Products</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="current" id="breadcrumbProduct">SaaS Landing Page Template</span>
+            </nav>
+
+            <!-- Back Button -->
+            <div style="margin-bottom: 1rem;">
+                <a href="products.html" class="btn btn-ghost">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Products
+                </a>
+            </div>
+
+            <!-- Product Header -->
+            <div class="product-header-card">
+                <div class="product-header-left">
+                    <h1 id="productTitle">SaaS Landing Page Template</h1>
+                    <div class="product-meta">
+                        <span class="status-badge status-published" id="productStatus">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Published
+                        </span>
+                        <span class="product-meta-item">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span id="productCategory">UI Kits & Templates</span>
+                        </span>
+                        <span class="product-meta-item">
+                            <i class="fa-solid fa-user"></i>
+                            <span id="productSeller">Tech Innovators Inc.</span>
+                        </span>
+                        <span class="product-meta-item">
+                            <i class="fa-solid fa-calendar"></i>
+                            <span id="productDate">Added Oct 26, 2024</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="product-header-actions">
+                    <button class="btn btn-ghost" id="editBtn">
+                        <i class="fa-solid fa-pen"></i>
+                        Edit
+                    </button>
+                    <button class="btn btn-primary" id="viewLiveBtn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        View Live
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Screenshots Section -->
+                    <div class="card">
+                        <h3 class="card-title">Product Screenshots</h3>
+                        <div class="screenshots-grid" id="screenshotsGrid">
+                            <!-- Screenshots rendered by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Tabs Section -->
+                    <div class="card tabs-card">
+                        <div class="tabs-header">
+                            <button class="tab-btn active" data-tab="description">
+                                <i class="fa-solid fa-align-left"></i>
+                                Description
+                            </button>
+                            <button class="tab-btn" data-tab="features">
+                                <i class="fa-solid fa-list-check"></i>
+                                Features
+                            </button>
+                            <button class="tab-btn" data-tab="files">
+                                <i class="fa-solid fa-folder-open"></i>
+                                Files & Downloads
+                            </button>
+                            <button class="tab-btn" data-tab="reviews">
+                                <i class="fa-solid fa-star"></i>
+                                Reviews (24)
+                            </button>
+                        </div>
+
+                        <div class="tab-content active" id="description">
+                            <div class="prose" id="productDescription">
+                                <!-- Description rendered by JS -->
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="features">
+                            <div class="features-list" id="productFeatures">
+                                <!-- Features rendered by JS -->
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="files">
+                            <div class="files-list" id="productFiles">
+                                <!-- Files rendered by JS -->
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="reviews">
+                            <div class="reviews-summary">
+                                <div class="rating-overview">
+                                    <div class="rating-score">4.8</div>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star-half-stroke"></i>
+                                    </div>
+                                    <div class="rating-count">24 reviews</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Actions Card -->
+                    <div class="card">
+                        <h3 class="card-title">Product Actions</h3>
+                        <div class="form-group">
+                            <label class="form-label">Product Status</label>
+                            <select class="form-select" id="statusSelect">
+                                <option value="published">Published</option>
+                                <option value="draft">Draft</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary btn-full" id="saveChangesBtn">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Save Changes
+                        </button>
+                    </div>
+
+                    <!-- Pricing Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Pricing</h3>
+                            <button class="btn-icon" id="editPriceBtn">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                        </div>
+                        <div class="price-display">
+                            <div class="price" id="productPrice">$79.00</div>
+                            <div class="price-note">One-time payment</div>
+                        </div>
+                    </div>
+
+                    <!-- Categories & Tags Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Categories & Tags</h3>
+                            <button class="btn-icon" id="editTagsBtn">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                        </div>
+                        <div class="tags-container" id="productTags">
+                            <!-- Tags rendered by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Demo Links Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Demo Links</h3>
+                            <button class="btn-icon" id="addLinkBtn">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="links-list">
+                            <div class="link-item">
+                                <div class="link-info">
+                                    <i class="fa-solid fa-eye"></i>
+                                    <a href="#" target="_blank">Live Preview</a>
+                                </div>
+                                <div class="link-actions">
+                                    <button class="btn-icon edit-link">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn-icon danger delete-link">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="link-item">
+                                <div class="link-info">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                    <a href="#" target="_blank">Documentation</a>
+                                </div>
+                                <div class="link-actions">
+                                    <button class="btn-icon edit-link">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                    <button class="btn-icon danger delete-link">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Card -->
+                    <div class="card">
+                        <h3 class="card-title">Product Stats</h3>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Sales</span>
+                                <span class="stat-value">487</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Revenue</span>
+                                <span class="stat-value">$38,473</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">4.8 ⭐</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Downloads</span>
+                                <span class="stat-value">1,245</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/JS/product-details.js"></script>
+</body>
+
+</html>

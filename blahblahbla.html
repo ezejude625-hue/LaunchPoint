@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Buttons</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+        }
+
+        /* Navbar */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0.8rem 1rem;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .brand {
+            font-family: cursive;
+            font-size: 2rem;
+        }
+
+        /* Hamburger */
+        .menu-btn {
+            font-size: 28px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            background: #f2f2f2;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .menu-btn:focus {
+            outline: 2px solid #000;
+            outline-offset: 1px;
+        }
+
+        /* Menu */
+        .menu {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.35s ease, opacity 0.25s ease;
+            gap: 0.5rem;
+        }
+
+        .menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        .menu li a,
+        .menu li button {
+            display: inline-block;
+            padding: 10px 14px;
+            font-size: 1rem;
+            /* normal font size */
+            font-weight: 600;
+            text-decoration: none;
+            color: #000;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            /* left align on mobile */
+            transition: background 0.2s, color 0.2s;
+            border-radius: 0.4rem;
+        }
+
+        .menu li a:hover,
+        .menu li button:hover {
+            background: #f2f2f2;
+        }
+
+        /* Buttons styling */
+        .menu li button {
+            background: #007BFF;
+            color: #fff;
+            margin-top: 0.3rem;
+            /* space between buttons on mobile */
+        }
+
+        .menu li button:hover {
+            background: #0056b3;
+        }
+
+        /* Desktop */
+        @media (min-width: 768px) {
+            .menu-btn {
+                display: none;
+            }
+
+            .menu {
+                max-height: none;
+                opacity: 1;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+                width: auto;
+            }
+
+            .menu li a,
+            .menu li button {
+                width: auto;
+                text-align: center;
+                /* center on desktop */
+                margin-top: 0;
+            }
+
+            /* Buttons inline with links */
+            .menu li.button-container {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+            }
+
+            .menu li.button-container button {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <h2 class="brand">FREZO</h2>
+
+            <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
+
+            <ul id="menu" class="menu" aria-expanded="false">
+                <li><a href="#" onclick="closeMenu()">Home</a></li>
+                <li><a href="#" onclick="closeMenu()">About</a></li>
+                <li><a href="#" onclick="closeMenu()">Skill</a></li>
+                <li><a href="#" onclick="closeMenu()">Contact</a></li>
+                <li><button onclick="closeMenu()">Sign Up</button></li>
+                <li><button onclick="closeMenu()">Login</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        const menu = document.getElementById("menu");
+
+        function toggleMenu() {
+            menu.classList.toggle("open");
+            menu.classList.contains("open") ?
+                menu.setAttribute("aria-expanded", "true") :
+                menu.setAttribute("aria-expanded", "false");
+        }
+
+        function closeMenu() {
+            menu.classList.remove("open");
+            menu.setAttribute("aria-expanded", "false");
+        }
+    </script>
+</body>
+
+</html>

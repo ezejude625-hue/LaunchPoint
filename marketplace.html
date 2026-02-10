@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marketplace - LaunchPoint</title>
+  <meta name="description"
+    content="Browse professional templates, branding kits, and tools to launch your online presence faster.">
+
+  <!-- font-awesome -->
+  <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <link rel="stylesheet" href="CSS/marketplace.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo"><i class="fa-solid fa-rocket"></i> LaunchPoint</div>
+      <input type="checkbox" id="menu">
+      <label for="menu" class="icon">&#9776;</label>
+      <div class="nav-wrapper">
+        <nav>
+          <a href="/homepage.html"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
+          <a href="/marketplace.html"><i class="fa-solid fa-store"></i>&nbsp;Marketplace</a>
+          <a href="cart.html">
+            <!-- <span id="cart-badge" class="cart-badge">0</span> -->
+            <i class="fa-solid fa-shopping-cart"></i>
+            &nbsp;Cart
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <!-- Hero Section -->
+      <div class="marketplace-hero">
+        <h1 class="hero-title">Launch Your Vision with <span class="gradient-text">Professional Tools</span></h1>
+        <p class="hero-subtitle">Browse our curated collection of templates, branding kits, and integrations to build
+          your online presence in minutes.</p>
+      </div>
+
+      <div class="page-grid">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar">
+          <div class="filter-card">
+            <div class="filter-header">
+              <div>
+                <h3><i class="fa-solid fa-sliders"></i> Filters</h3>
+                <p class="filter-subtitle">Refine your search</p>
+              </div>
+            </div>
+
+            <div class="filter-body">
+              <!-- Category Filter -->
+              <details open class="filter-section">
+                <summary>
+                  <span>Category</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+                <div class="filter-options">
+                  <label class="checkbox-label">
+                    <input type="checkbox" data-filter="category" value="landing-pages" />
+                    <span>Landing Pages</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" data-filter="category" value="branding-kits" />
+                    <span>Branding Kits</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" data-filter="category" value="website-themes" />
+                    <span>Website Themes</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" data-filter="category" value="ui-components" />
+                    <span>UI Components</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" data-filter="category" value="integrations" />
+                    <span>Marketing Tools</span>
+                  </label>
+                </div>
+              </details>
+
+              <!-- Price Filter -->
+              <details open class="filter-section">
+                <summary>
+                  <span>Price Range</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </summary>
+                <div class="filter-options">
+                  <label class="checkbox-label">
+                    <input type="checkbox" data-filter="price" value="0-50" />
+                    <span>Under $50</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" data-filter="price" value="50-100" />
+                    <span>$50 - $100</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" data-filter="price" value="100-200" />
+                    <span>$100 - $200</span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input type="checkbox" data-filter="price" value="200+" />
+                    <span>$200+</span>
+                  </label>
+                </div>
+              </details>
+
+              <!-- Filter Actions -->
+              <div class="filter-actions">
+                <button class="btn btn-apply" id="apply-filters">Apply Filters</button>
+                <button class="btn btn-clear" id="clear-filters">Reset All</button>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Products Section -->
+        <section class="products-section">
+          <div class="results-header">
+            <div class="results-info">
+              <h2>Browse Templates & Tools</h2>
+              <p class="results-count"><span id="product-count">6</span> products available</p>
+            </div>
+            <div class="sort-control">
+              <label for="sort-select">Sort by:</label>
+              <select id="sort-select" class="sort-select">
+                <option value="newest">Newest First</option>
+                <option value="popular">Most Popular</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="product-grid" id="product-grid">
+            <!-- Products will be rendered by JS -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><i class="fa-solid fa-rocket"></i> LaunchPoint</div>
+          <p style="color: rgba(255, 255, 255, 0.7); margin-top: 1rem;">
+            Launch your online presence quickly and professionally.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="marketplace.html">Templates</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Integrations</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="JS/marketplace.js"></script>
+</body>
+
+</html>

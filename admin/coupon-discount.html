@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupon Management - LaunchPoint Admin</title>
+    <meta name="description" content="Manage promotional coupons and discounts for LaunchPoint marketplace">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/coupon-discount.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expense.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Coupon Management</h1>
+                    <p>Create and manage promotional discount codes</p>
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-primary" id="createCouponBtn">
+                        <i class="fa-solid fa-plus"></i>
+                        Create Coupon
+                    </button>
+                </div>
+            </div>
+
+            <!-- Toolbar -->
+            <div class="toolbar-card">
+                <div class="toolbar-top">
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-search search-icon"></i>
+                        <input type="text" class="search-input" id="searchInput"
+                            placeholder="Search by coupon code..." />
+                    </div>
+                    <div class="toolbar-actions">
+                        <button class="btn btn-ghost btn-sm" id="filterBtn">
+                            <i class="fa-solid fa-filter"></i>
+                            Filter
+                        </button>
+                        <button class="btn btn-ghost btn-sm" id="sortBtn">
+                            <i class="fa-solid fa-arrow-down-wide-short"></i>
+                            Sort
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Filter Chips -->
+                <div class="filter-chips">
+                    <button class="chip active" data-filter="all">
+                        <i class="fa-solid fa-list"></i>
+                        All Coupons
+                    </button>
+                    <button class="chip" data-filter="active">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Active
+                    </button>
+                    <button class="chip" data-filter="inactive">
+                        <i class="fa-solid fa-circle-pause"></i>
+                        Inactive
+                    </button>
+                    <button class="chip" data-filter="expired">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        Expired
+                    </button>
+                </div>
+            </div>
+
+            <!-- Coupons Table -->
+            <div class="table-card">
+                <div class="table-container">
+                    <table class="coupons-table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Type</th>
+                                <th>Value</th>
+                                <th>Status</th>
+                                <th>Usage</th>
+                                <th>Expires</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="couponsTableBody">
+                            <!-- Coupons will be rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <div class="empty-icon">
+                        <i class="fa-solid fa-ticket"></i>
+                    </div>
+                    <div class="empty-content">
+                        <h3>No Coupons Found</h3>
+                        <p>Create your first promotional coupon to get started</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="document.getElementById('createCouponBtn').click()">
+                        <i class="fa-solid fa-plus"></i>
+                        Create First Coupon
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/JS/coupon-discount.js"></script>
+</body>
+
+</html>

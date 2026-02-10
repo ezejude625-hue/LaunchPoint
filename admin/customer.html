@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details - LaunchPoint Admin</title>
+    <meta name="description" content="View detailed customer information and activity on LaunchPoint">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/customer.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="create-product.html" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="customer-detail.html" class="nav-item active">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expense.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <a href="customer-detail.html">Customers</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="breadcrumb-current" id="customerNameBreadcrumb">Brooklyn Simmons</span>
+            </nav>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Profile Card -->
+                    <div class="profile-card">
+                        <div class="profile-avatar" id="customerAvatar">
+                            <img src="https://i.pravatar.cc/150?img=25" alt="Customer Avatar" />
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="customerName">Brooklyn Simmons</h2>
+                            <p class="profile-email" id="customerEmail">brooklyn.s@example.com</p>
+                            <div class="profile-meta">
+                                <div class="meta-item">
+                                    <i class="fa-solid fa-calendar-plus"></i>
+                                    <span>Joined <span id="joinedDate">Jan 12, 2024</span></span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span id="customerLocation">New York, USA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="btn btn-primary" id="editCustomerBtn">
+                                <i class="fa-solid fa-pen"></i>
+                                Edit Customer
+                            </button>
+                            <button class="btn btn-danger" id="deleteCustomerBtn">
+                                <i class="fa-solid fa-trash"></i>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Account Management -->
+                    <div class="card">
+                        <h3>
+                            <i class="fa-solid fa-user-gear"></i>
+                            Account Management
+                        </h3>
+                        <div class="form-group">
+                            <div class="form-field">
+                                <label>
+                                    <i class="fa-solid fa-user-tag"></i>
+                                    Role
+                                </label>
+                                <select class="form-select" id="roleSelect">
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="moderator">Moderator</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>
+                                    <i class="fa-solid fa-signal"></i>
+                                    Account Status
+                                </label>
+                                <select class="form-select" id="statusSelect">
+                                    <option value="active">Active</option>
+                                    <option value="suspended">Suspended</option>
+                                    <option value="banned">Banned</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-full" id="saveChangesBtn">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            Save Changes
+                        </button>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon revenue">
+                                <i class="fa-solid fa-dollar-sign"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-label">Total Spent</div>
+                                <div class="stat-value" id="totalSpent">$1,450.00</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purchases">
+                                <i class="fa-solid fa-shopping-cart"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-label">Purchases</div>
+                                <div class="stat-value" id="totalPurchases">22</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <div class="tabs-card">
+                        <!-- Tabs Header -->
+                        <div class="tabs-header">
+                            <button class="tab-btn active" data-tab="activity">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                Activity Log
+                            </button>
+                            <button class="tab-btn" data-tab="purchases">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                Purchase History
+                            </button>
+                            <button class="tab-btn" data-tab="downloads">
+                                <i class="fa-solid fa-download"></i>
+                                Downloads
+                            </button>
+                        </div>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <!-- Activity Tab -->
+                            <div class="tab-pane active" id="activityTab">
+                                <div class="tab-pane-header">
+                                    <h3>Recent Activity</h3>
+                                    <span class="time-filter">Last 7 days</span>
+                                </div>
+                                <div class="activity-timeline" id="activityTimeline">
+                                    <!-- Activities will be rendered by JS -->
+                                </div>
+                            </div>
+
+                            <!-- Purchases Tab -->
+                            <div class="tab-pane" id="purchasesTab">
+                                <div class="tab-pane-header">
+                                    <h3>Purchase History</h3>
+                                    <span class="time-filter">All time</span>
+                                </div>
+                                <div class="purchases-list" id="purchasesList">
+                                    <!-- Purchases will be rendered by JS -->
+                                </div>
+                            </div>
+
+                            <!-- Downloads Tab -->
+                            <div class="tab-pane" id="downloadsTab">
+                                <div class="tab-pane-header">
+                                    <h3>Downloaded Products</h3>
+                                    <span class="time-filter">All downloads</span>
+                                </div>
+                                <div class="downloads-list" id="downloadsList">
+                                    <!-- Downloads will be rendered by JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/JS/customer.js"></script>
+</body>
+
+</html>

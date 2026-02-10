@@ -1,0 +1,1125 @@
+/* ====================================
+   LAUNCHPOINT - PAYMENT CONFIRMATION
+   ==================================== */
+
+/* ---- CSS Variables ---- */
+:root {
+    --primary: #4169E1;
+    --accent: #17A2B8;
+    --background: #ffffff;
+    --foreground: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --card-bg: #f9fafb;
+    --success: #10b981;
+    --error: #ef4444;
+}
+
+/* ---- Global Reset ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: var(--foreground);
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    flex: 1;
+}
+
+/* ====================================
+   HEADER STYLES
+   ==================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    user-select: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo i {
+    font-size: 1.75rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.secure {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(23, 162, 184, 0.1);
+    border-radius: 2rem;
+    color: var(--accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.secure i {
+    font-size: 1.125rem;
+}
+
+/* ====================================
+   MAIN CONTENT
+   ==================================== */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 1.5rem;
+    flex: 1;
+}
+
+.content {
+    max-width: 700px;
+    width: 100%;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ---- Launch Badge ---- */
+.launch-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, rgba(65, 105, 225, 0.1), rgba(23, 162, 184, 0.1));
+    color: var(--accent);
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+    width: 100%;
+    text-align: center;
+}
+
+.launch-badge i {
+    font-size: 1.25rem;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* ---- Page Title ---- */
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+    line-height: 1.2;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-size: 1.125rem;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+}
+
+/* ====================================
+   CARD STYLES
+   ==================================== */
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* ---- Section Styles ---- */
+.section {
+    margin-bottom: 2rem;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--foreground);
+}
+
+.section h3 i {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+/* ---- Payment Method Card ---- */
+.payment-method {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    background: var(--card-bg);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.payment-method:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(65, 105, 225, 0.1);
+}
+
+.payment-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+}
+
+.card-logo i {
+    font-size: 2.5rem;
+    color: #1434CB;
+}
+
+.payment-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.card-number {
+    font-weight: 600;
+    color: var(--foreground);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.exp {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+.change-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.change-btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(65, 105, 225, 0.2);
+}
+
+/* ---- Divider ---- */
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+
+/* ---- Order Items ---- */
+#order-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.item-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+}
+
+.item-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-icon i {
+    font-size: 1.75rem;
+    color: var(--primary);
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.item-name {
+    font-weight: 600;
+    color: var(--foreground);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.item-category {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+.item-price {
+    font-weight: 700;
+    color: var(--foreground);
+    font-size: 1.125rem;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* ---- Totals Section ---- */
+.totals {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-top: 1.5rem;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--foreground);
+}
+
+.total-row.total {
+    font-size: 1.75rem;
+    font-weight: 800;
+    padding-top: 1.25rem;
+    margin-top: 0.75rem;
+    border-top: 2px solid var(--border);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.discount-label {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.discount-value {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.promo-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.375rem;
+    margin-left: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ---- Benefits Section ---- */
+.benefits-section {
+    margin-top: 2rem;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, rgba(65, 105, 225, 0.05), rgba(23, 162, 184, 0.05));
+    border-radius: 0.75rem;
+    border: 1px solid rgba(65, 105, 225, 0.1);
+}
+
+.benefits-section h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--foreground);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.benefit-item i {
+    color: var(--accent);
+    font-size: 1.25rem;
+}
+
+/* ====================================
+   CARD FOOTER
+   ==================================== */
+
+.card-footer {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+/* ---- Confirm Button ---- */
+.confirm-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(65, 105, 225, 0.3);
+    font-family: inherit;
+}
+
+.confirm-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(65, 105, 225, 0.4);
+}
+
+.confirm-btn:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.confirm-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.confirm-btn i {
+    font-size: 1.5rem;
+}
+
+.confirm-btn .fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#confirm-amount {
+    margin-left: auto;
+    font-size: 1.375rem;
+    font-weight: 800;
+}
+
+/* ---- Cancel Link ---- */
+.cancel-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cancel-link:hover {
+    color: var(--primary);
+    gap: 0.75rem;
+}
+
+/* ---- Security Notice ---- */
+.security-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(23, 162, 184, 0.08);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.security-notice i {
+    font-size: 1.125rem;
+}
+
+/* ====================================
+   SUCCESS MODAL
+   ==================================== */
+
+.success-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+    padding: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.success-content {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 1.25rem;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: slideUp 0.5s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.success-icon {
+    font-size: 5rem;
+    color: var(--success);
+    margin-bottom: 1.5rem;
+    animation: scaleIn 0.5s ease 0.3s backwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.success-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+}
+
+.success-content>p {
+    font-size: 1.125rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.success-details {
+    background: var(--card-bg);
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+}
+
+.success-details p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.success-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 4px 12px rgba(65, 105, 225, 0.3);
+}
+
+.success-btn:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(23, 162, 184, 0.4);
+}
+
+.success-btn i {
+    font-size: 1.25rem;
+}
+
+/* ====================================
+   EMPTY STATE
+   ==================================== */
+
+.empty-order {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.empty-order i {
+    font-size: 4rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+}
+
+.empty-order p {
+    font-size: 1.25rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* ====================================
+   FOOTER
+   ==================================== */
+
+footer {
+    background: var(--foreground);
+    color: white;
+    padding: 3rem 0 2rem;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 1.5rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.footer-logo i {
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-section h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    font-size: 0.9375rem;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .card-footer {
+        padding: 1.5rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-method {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .change-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .order-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .item-price {
+        align-self: flex-end;
+    }
+
+    #confirm-amount {
+        margin-left: 0;
+        font-size: 1.125rem;
+    }
+
+    .success-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .success-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .secure {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 2rem 1rem;
+    }
+
+    .launch-badge {
+        font-size: 0.75rem;
+        padding: 0.625rem 1rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .section h3 {
+        font-size: 1.125rem;
+    }
+
+    .confirm-btn {
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* ====================================
+   COMPLETE RESPONSIVE FIXES - CONFIRM PAYMENT
+   ==================================== */
+
+/* Tablets and Medium Devices (768px - 1024px) */
+@media (max-width: 1024px) {
+    main {
+        padding: 2rem 1rem;
+    }
+
+    .card-body {
+        padding: 1.75rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile and Small Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0.875rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .logo h2 {
+        font-size: 1.25rem;
+    }
+
+    .secure {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.75rem;
+    }
+
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    .launch-badge {
+        font-size: 0.8125rem;
+        padding: 0.625rem 1.25rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .section h3 {
+        font-size: 1.125rem;
+    }
+
+    .payment-method {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .change-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .order-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .item-info {
+        width: 100%;
+    }
+
+    .item-price {
+        align-self: flex-end;
+    }
+
+    .total-row.total {
+        font-size: 1.5rem;
+    }
+
+    #confirm-amount {
+        margin-left: 0;
+        font-size: 1.125rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-footer {
+        padding: 1.5rem;
+    }
+
+    .confirm-btn {
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .success-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .success-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Small Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .launch-badge {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .subtitle {
+        font-size: 0.9375rem;
+    }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    .section h3 {
+        font-size: 1rem;
+    }
+
+    .payment-info {
+        flex-direction: column;
+    }
+
+    .card-logo {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .card-logo i {
+        font-size: 2rem;
+    }
+
+    .order-items-list {
+        gap: 0.625rem;
+    }
+
+    .item-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .item-name {
+        font-size: 0.9375rem;
+    }
+
+    .item-price {
+        font-size: 1rem;
+    }
+
+    .total-row.total {
+        font-size: 1.25rem;
+    }
+
+    .confirm-btn {
+        font-size: 0.9375rem;
+        padding: 0.875rem 1.25rem;
+    }
+}
+
+/* Landscape Mobile Devices */
+@media (max-height: 600px) and (orientation: landscape) {
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        margin-bottom: 1.5rem;
+    }
+}

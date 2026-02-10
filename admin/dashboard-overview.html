@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Overview - LaunchPoint Admin</title>
+    <meta name="description" content="LaunchPoint admin dashboard with analytics, sales stats, and order management">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/dashboard-overview.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="create-product.html" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="customer-detail.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expense.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Reports</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome back! Here's what's happening today.</p>
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-ghost" id="notificationBtn">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <button class="btn btn-primary" id="addProductBtn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Product
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions-section">
+                <h2 class="section-title">Quick Actions</h2>
+                <div class="quick-actions-grid">
+                    <a href="#" class="quick-action-card">
+                        <div class="action-icon pending">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-label">Pending Orders</div>
+                            <div class="action-value">45</div>
+                        </div>
+                    </a>
+                    <a href="#" class="quick-action-card">
+                        <div class="action-icon support">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-label">Support Tickets</div>
+                            <div class="action-value">12</div>
+                        </div>
+                    </a>
+                    <a href="create-product.html" class="quick-action-card">
+                        <div class="action-icon product">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-label">Add Product</div>
+                            <div class="action-value">+</div>
+                        </div>
+                    </a>
+                    <a href="#" class="quick-action-card">
+                        <div class="action-icon report">
+                            <i class="fa-solid fa-file-chart-column"></i>
+                        </div>
+                        <div class="action-content">
+                            <div class="action-label">Generate Report</div>
+                            <div class="action-value"><i class="fa-solid fa-download"></i></div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Stats Grid -->
+            <section class="stats-section">
+                <h2 class="section-title">Overview Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon revenue">
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Revenue</div>
+                            <div class="stat-value">$125,660</div>
+                            <div class="stat-change positive">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                +5% this month
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon orders">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Orders</div>
+                            <div class="stat-value">1,280</div>
+                            <div class="stat-change positive">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                +12% this month
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon products">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Products Listed</div>
+                            <div class="stat-value">1,200</div>
+                            <div class="stat-change positive">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                +8% this month
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon users">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-label">Active Users</div>
+                            <div class="stat-value">3,450</div>
+                            <div class="stat-change positive">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                +2.1% this month
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="charts-grid">
+                    <!-- Revenue Chart -->
+                    <div class="chart-card large">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Revenue Trend</h3>
+                                <p class="chart-subtitle">Last 30 days performance</p>
+                            </div>
+                            <div class="chart-stats">
+                                <div class="chart-value">$45,231.89</div>
+                                <div class="chart-change positive">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                    +15.5%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Categories Donut Chart -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Product Categories</h3>
+                                <p class="chart-subtitle">Distribution by type</p>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <div class="donut-container">
+                                <canvas id="categoriesChart"></canvas>
+                                <div class="donut-center">
+                                    <div class="donut-value">1.2K</div>
+                                    <div class="donut-label">Products</div>
+                                </div>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <span class="legend-dot" style="background: #4169E1;"></span>
+                                    <span>Scripts (40%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-dot" style="background: #17A2B8;"></span>
+                                    <span>APIs (30%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-dot" style="background: #10b981;"></span>
+                                    <span>Apps (20%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-dot" style="background: #f59e0b;"></span>
+                                    <span>Other (10%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Orders -->
+            <section class="orders-section">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Orders</h2>
+                    <button class="btn btn-ghost btn-sm" id="viewAllOrdersBtn">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="table-card">
+                    <div class="table-container">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date & Time</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- Orders will be rendered by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/JS/dashboard-overview.js"></script>
+</body>
+
+</html>

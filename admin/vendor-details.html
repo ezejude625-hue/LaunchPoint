@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Details - LaunchPoint Admin</title>
+    <meta name="description" content="View detailed information about seller and their products">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/vendor-details.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard-overview.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="create-product.html" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="customer-detail.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="finance.html" class="nav-item">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expenses.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="seller-management.html" class="nav-item active">
+                    <i class="fa-solid fa-store"></i>
+                    <span>Sellers</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Breadcrumbs -->
+            <nav class="breadcrumbs">
+                <a href="dashboard-overview.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <a href="seller-management.html">Sellers</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="current">John Doe</span>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Seller Details</h1>
+                <div class="header-actions">
+                    <button class="btn btn-ghost" id="messageBtn">
+                        <i class="fa-solid fa-envelope"></i>
+                        Message
+                    </button>
+                    <button class="btn btn-danger" id="suspendBtn">
+                        <i class="fa-solid fa-ban"></i>
+                        Suspend
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <span id="sellerInitials">JD</span>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="sellerName">John Doe</h2>
+                        <p class="profile-username" id="sellerUsername">@johndoe</p>
+                        <p class="profile-joined" id="sellerJoined">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            Member since Jan 15, 2024
+                        </p>
+                        <div class="status-badge status-active">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Active
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn btn-ghost" id="editProfileBtn">
+                        <i class="fa-solid fa-pen"></i>
+                        Edit Profile
+                    </button>
+                    <button class="btn btn-primary" id="changeStatusBtn">
+                        <i class="fa-solid fa-toggle-on"></i>
+                        Change Status
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon products">
+                        <i class="fa-solid fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Total Products</div>
+                        <div class="stat-value" id="totalProducts">12</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon sales">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Total Sales</div>
+                        <div class="stat-value" id="totalSales">$8,945</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon rating">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Seller Rating</div>
+                        <div class="stat-value" id="sellerRating">4.8</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon payout">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-label">Pending Payout</div>
+                        <div class="stat-value" id="pendingPayout">$1,245</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs-section">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="products">
+                        <i class="fa-solid fa-box"></i>
+                        Products
+                    </button>
+                    <button class="tab-btn" data-tab="sales">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Sales Performance
+                    </button>
+                    <button class="tab-btn" data-tab="payout">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        Payout History
+                    </button>
+                    <button class="tab-btn" data-tab="communication">
+                        <i class="fa-solid fa-messages"></i>
+                        Communication Log
+                    </button>
+                </div>
+
+                <!-- Products Tab -->
+                <div class="tab-content active" id="products">
+                    <div class="table-card">
+                        <div class="table-container">
+                            <table class="products-table">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Price</th>
+                                        <th>Date Added</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productsTableBody">
+                                    <!-- Products will be rendered by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sales Tab -->
+                <div class="tab-content" id="sales">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>Sales Performance</h3>
+                        <p>Sales analytics and performance metrics would be displayed here</p>
+                    </div>
+                </div>
+
+                <!-- Payout Tab -->
+                <div class="tab-content" id="payout">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        <h3>Payout History</h3>
+                        <p>Transaction and payout history would be displayed here</p>
+                    </div>
+                </div>
+
+                <!-- Communication Tab -->
+                <div class="tab-content" id="communication">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-comments"></i>
+                        <h3>Communication Log</h3>
+                        <p>Message history and communication logs would be displayed here</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/JS/vendor-details.js"></script>
+</body>
+
+</html>

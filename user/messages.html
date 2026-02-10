@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages - LaunchPoint</title>
+  <meta name="description" content="View and manage your messages on LaunchPoint">
+
+  <!-- font-awesome -->
+  <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/CSS/messages.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="dashboard.html" class="logo">
+        <i class="fa-solid fa-rocket"></i>
+        <span>LaunchPoint</span>
+      </a>
+      <div class="header-actions">
+        <div class="search-wrapper">
+          <i class="fa-solid fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="Search messages..." id="searchInput" />
+        </div>
+        <div class="icon-buttons">
+          <button class="icon-button" aria-label="Shopping cart" id="cartBtn">
+            <i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+          <button class="icon-button active" aria-label="Messages">
+            <i class="fa-solid fa-envelope"></i>&nbsp;Messages
+            <span class="message-badge">3</span>
+          </button>
+        </div>
+        <a href="account-setting.html" class="user-menu">
+          <div class="user-avatar" id="userAvatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <span class="user-name" id="userName">John Doe</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="messages-container">
+    <div class="messages-wrapper">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>Messages</h1>
+        <div class="header-actions">
+          <button class="btn btn-ghost" id="filterBtn">
+            <i class="fa-solid fa-filter"></i>
+            Filter
+          </button>
+          <button class="btn btn-primary" id="composeBtn">
+            <i class="fa-solid fa-pen"></i>
+            Compose
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages Layout -->
+      <div class="messages-layout">
+        <!-- Conversations List -->
+        <div class="conversations-panel">
+          <div class="panel-header">
+            <h2>All Conversations</h2>
+            <span class="unread-count" id="unreadCount">3 unread</span>
+          </div>
+          <div class="conversations-list" id="conversationsList">
+            <!-- Conversations will be rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Chat Panel -->
+        <div class="chat-panel">
+          <div class="chat-header" id="chatHeader">
+            <div class="chat-user">
+              <div class="chat-avatar" id="chatAvatar">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="chat-info">
+                <h3 id="chatName">Select a conversation</h3>
+                <p id="chatSubject">-</p>
+              </div>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="chatOptionsBtn">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </div>
+
+          <div class="chat-messages" id="chatMessages">
+            <div class="empty-chat">
+              <i class="fa-solid fa-comments"></i>
+              <p>Select a conversation to start messaging</p>
+            </div>
+          </div>
+
+          <div class="chat-input" id="chatInput" style="display: none;">
+            <div class="input-wrapper">
+              <button class="input-btn" title="Add emoji">
+                <i class="fa-solid fa-face-smile"></i>
+              </button>
+              <textarea class="message-input" id="messageInput" placeholder="Type your message..." rows="1"></textarea>
+              <button class="input-btn" title="Attach file">
+                <i class="fa-solid fa-paperclip"></i>
+              </button>
+              <button class="send-btn" id="sendBtn">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/JS/messages.js"></script>
+</body>
+
+</html>

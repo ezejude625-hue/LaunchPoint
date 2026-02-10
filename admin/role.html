@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Management - LaunchPoint Admin</title>
+    <meta name="description" content="Define roles, assign permissions, and manage administrator access">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/role.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard-overview.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="create-product.html" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="customer-detail.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="orders.html" class="nav-item">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="finance.html" class="nav-item">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expenses.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item active">
+                    <i class="fa-solid fa-user-lock"></i>
+                    <span>Role Management</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Role Management</h1>
+                    <p>Define roles, assign permissions, and manage administrator access</p>
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-primary" id="createRoleBtn">
+                        <i class="fa-solid fa-plus"></i>
+                        Create New Role
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Left Column: Roles List -->
+                <div class="roles-column">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fa-solid fa-list"></i>
+                                Roles
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <!-- Search -->
+                            <div class="search-wrapper">
+                                <i class="fa-solid fa-search search-icon"></i>
+                                <input type="text" id="roleSearch" class="search-input" placeholder="Search roles..." />
+                            </div>
+
+                            <!-- Roles List -->
+                            <div class="roles-list" id="rolesList">
+                                <!-- Roles will be rendered by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Role Details -->
+                <div class="details-column">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 id="roleTitle">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                Super Administrator
+                            </h3>
+                            <button class="btn btn-danger" id="deleteRoleBtn">
+                                <i class="fa-solid fa-trash"></i>
+                                Delete Role
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <!-- Permissions Section -->
+                            <div class="permissions-section">
+                                <h4 class="section-title">Permissions</h4>
+                                <div class="permissions-grid" id="permissionsGrid">
+                                    <!-- Permissions will be rendered by JS -->
+                                </div>
+                            </div>
+
+                            <!-- Assigned Admins Section -->
+                            <div class="admins-section">
+                                <div class="admins-header">
+                                    <h4 class="section-title">Assigned Administrators</h4>
+                                    <button class="btn btn-ghost btn-sm" id="assignUserBtn">
+                                        <i class="fa-solid fa-user-plus"></i>
+                                        Assign User
+                                    </button>
+                                </div>
+
+                                <div class="table-card">
+                                    <div class="table-container">
+                                        <table class="admins-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Admin Name</th>
+                                                    <th>Email</th>
+                                                    <th class="text-center">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="adminsTableBody">
+                                                <!-- Admins will be rendered by JS -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/JS/role.js"></script>
+</body>
+
+</html>

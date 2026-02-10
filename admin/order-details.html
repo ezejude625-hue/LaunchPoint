@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - LaunchPoint Admin</title>
+    <meta name="description" content="View and manage order details on LaunchPoint marketplace">
+
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/e71321a315.js" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/LaunchPoint-Logo.jpeg" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/order-details.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LaunchPoint</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard-overview.html" class="nav-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="create-product.html" class="nav-item">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="customer-detail.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-shopping-bag"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="finance.html" class="nav-item">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Finance</span>
+                </a>
+                <a href="coupon-discount.html" class="nav-item">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Coupons</span>
+                </a>
+                <a href="expenses.html" class="nav-item">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span>Expenses</span>
+                </a>
+                <a href="analytic-dashboard.html" class="nav-item">
+                    <i class="fa-solid fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar" id="adminAvatar">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="adminName">Admin</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <a href="account-settings.html" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="dashboard-overview.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <a href="#">Orders</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="breadcrumb-current">#LP-12345</span>
+            </nav>
+
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">
+                    <h1>Order Details</h1>
+                    <p>Order ID: #LP-12345 • Placed on Feb 1, 2026</p>
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-ghost" id="printInvoiceBtn">
+                        <i class="fa-solid fa-print"></i>
+                        Print Invoice
+                    </button>
+                    <button class="btn btn-primary" id="sendDownloadBtn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send Download Link
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Products Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fa-solid fa-box-open"></i>
+                                Digital Products
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table class="products-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Type</th>
+                                            <th>License</th>
+                                            <th class="text-right">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="product-name">SaaS Landing Page Template</td>
+                                            <td>Landing Page</td>
+                                            <td>Single Site</td>
+                                            <td class="text-right">$79.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-name">Complete Branding Kit - Tech Startup</td>
+                                            <td>Branding Kit</td>
+                                            <td>Commercial</td>
+                                            <td class="text-right">$149.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-name">E-Commerce Website Theme</td>
+                                            <td>Website Theme</td>
+                                            <td>Multi-Site</td>
+                                            <td class="text-right">$199.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="order-summary">
+                                <div class="summary-row">
+                                    <span>Subtotal</span>
+                                    <span>$427.00</span>
+                                </div>
+                                <div class="summary-row discount">
+                                    <span>Discount (LAUNCH20)</span>
+                                    <span>-$85.40</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Tax (0%)</span>
+                                    <span>$0.00</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total Paid</span>
+                                    <span>$341.60</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Customer Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fa-solid fa-user"></i>
+                                Customer Information
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="customer-profile">
+                                <div class="customer-avatar">SC</div>
+                                <div class="customer-details">
+                                    <div class="customer-name">Sarah Chen</div>
+                                    <div class="customer-email">sarah.chen@techstart.io</div>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <h4>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Billing Address
+                                </h4>
+                                <p>456 Innovation Drive<br>San Francisco, CA 94102<br>United States</p>
+                            </div>
+
+                            <div class="customer-stats">
+                                <div class="stat-item">
+                                    <div class="stat-label">Total Orders</div>
+                                    <div class="stat-value">3</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Customer Since</div>
+                                    <div class="stat-value">Jan 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fa-solid fa-credit-card"></i>
+                                Payment & Status
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="payment-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Payment Method</span>
+                                    <span class="detail-value">Visa •••• 4242</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Transaction ID</span>
+                                    <span class="detail-value transaction-id" id="transactionId"
+                                        title="Click to copy">ch_3LP...x9K</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Payment Status</span>
+                                    <span class="status-badge status-paid">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        Paid
+                                    </span>
+                                </div>
+                                <div class="detail-row">
+                                    <label class="detail-label" for="deliveryStatus">Delivery Status</label>
+                                    <select class="status-select" id="deliveryStatus">
+                                        <option value="pending">Pending</option>
+                                        <option value="delivered" selected>Delivered</option>
+                                        <option value="failed">Failed</option>
+                                        <option value="refunded">Refunded</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-danger btn-full" id="refundBtn">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                Issue Full Refund
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                Order Timeline
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-icon success">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Products Delivered</div>
+                                        <div class="timeline-description">Download links sent to customer</div>
+                                        <div class="timeline-time">Feb 1, 2026, 2:15 PM</div>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-icon primary">
+                                        <i class="fa-solid fa-dollar-sign"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Payment Confirmed</div>
+                                        <div class="timeline-description">Transaction processed successfully</div>
+                                        <div class="timeline-time">Feb 1, 2026, 2:14 PM</div>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-icon primary">
+                                        <i class="fa-solid fa-shopping-cart"></i>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">Order Placed</div>
+                                        <div class="timeline-description">Customer completed checkout</div>
+                                        <div class="timeline-time">Feb 1, 2026, 2:12 PM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="page-footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Support</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/JS/order-details.js"></script>
+</body>
+
+</html>
