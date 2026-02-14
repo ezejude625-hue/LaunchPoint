@@ -21,31 +21,25 @@
 
 <body>
   <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <a href="index.html" class="logo">
-          <i class="fa-solid fa-rocket"></i>
-          <span>LaunchPoint</span>
-        </a>
-
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="menu-icon">
-          <i class="fa-solid fa-bars"></i>
-        </label>
-
-        <nav class="nav-menu">
-          <a href="homepage.html#marketplace" class="nav-link">Marketplace</a>
-          <button class="btn-icon" id="cartBtn">
-            <i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart
-            <span class="cart-badge" id="cartCount">0</span>
-          </button>
-          <a href="homepage.html#categories" class="nav-link">Categories</a>
-          <a href="homepage.html#features" class="nav-link">Features</a>
-          <a href="homepage.html#pricing" class="nav-link">Pricing</a>
-        </nav>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <i class="fa-solid fa-rocket"></i> LaunchPoint
       </div>
-    </div>
+
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
+
+      <ul id="menu" class="menu" aria-expanded="false">
+        <li><a href="/homepage.html" onclick="closeMenu()"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="/marketplace.html" onclick="closeMenu()"><i class="fa-solid fa-store"></i> Marketplace</a></li>
+        <li><a href="/user/dashboard.html" onclick="closeMenu()"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+        <li>
+          <button class="btn btn-ghost" id="cartBtn" onclick="closeMenu()">
+            <i class="fa-solid fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)
+          </button>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Main Content -->
@@ -53,12 +47,12 @@
     <div class="container">
       <!-- Breadcrumbs -->
       <nav class="breadcrumbs">
-        <a href="index.html">
+        <a href="homepage.html">
           <i class="fa-solid fa-house"></i>
           Home
         </a>
         <i class="fa-solid fa-chevron-right"></i>
-        <a href="index.html#marketplace">Marketplace</a>
+        <a href="marketplace.html">Marketplace</a>
         <i class="fa-solid fa-chevron-right"></i>
         <span class="breadcrumb-current" id="breadcrumbCategory">UI Kits & Templates</span>
         <i class="fa-solid fa-chevron-right"></i>
@@ -75,7 +69,7 @@
             <div class="product-meta">
               <span class="meta-item">
                 <i class="fa-solid fa-user"></i>
-                By <a href="#" class="seller-link" id="sellerName">Tech Innovators Inc.</a>
+                By <span class="seller-link" id="sellerName">Tech Innovators Inc.</span>
               </span>
               <span class="meta-item">
                 <i class="fa-solid fa-star"></i>
@@ -114,10 +108,6 @@
                 <i class="fa-solid fa-folder-open"></i>
                 What's Included
               </button>
-              <button class="tab-btn" data-tab="reviews">
-                <i class="fa-solid fa-star"></i>
-                Reviews
-              </button>
             </div>
 
             <div class="tabs-content">
@@ -138,59 +128,6 @@
                   <!-- Files rendered by JS -->
                 </div>
               </div>
-
-              <div class="tab-pane" id="reviews">
-                <div class="reviews-overview">
-                  <div class="rating-summary">
-                    <div class="rating-score" id="reviewRatingScore">4.8</div>
-                    <div class="rating-stars" id="reviewStars">
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star"></i>
-                      <i class="fa-solid fa-star-half-stroke"></i>
-                    </div>
-                    <div class="rating-text">Based on <span id="reviewTotalCount">24</span> reviews</div>
-                  </div>
-                  <div class="rating-bars">
-                    <div class="rating-bar">
-                      <span class="bar-label">5</span>
-                      <div class="bar-track">
-                        <div class="bar-fill" style="width: 85%"></div>
-                      </div>
-                      <span class="bar-percent">85%</span>
-                    </div>
-                    <div class="rating-bar">
-                      <span class="bar-label">4</span>
-                      <div class="bar-track">
-                        <div class="bar-fill" style="width: 10%"></div>
-                      </div>
-                      <span class="bar-percent">10%</span>
-                    </div>
-                    <div class="rating-bar">
-                      <span class="bar-label">3</span>
-                      <div class="bar-track">
-                        <div class="bar-fill" style="width: 3%"></div>
-                      </div>
-                      <span class="bar-percent">3%</span>
-                    </div>
-                    <div class="rating-bar">
-                      <span class="bar-label">2</span>
-                      <div class="bar-track">
-                        <div class="bar-fill" style="width: 2%"></div>
-                      </div>
-                      <span class="bar-percent">2%</span>
-                    </div>
-                    <div class="rating-bar">
-                      <span class="bar-label">1</span>
-                      <div class="bar-track">
-                        <div class="bar-fill" style="width: 0%"></div>
-                      </div>
-                      <span class="bar-percent">0%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -207,7 +144,7 @@
               <label for="licenseSelect" class="license-label">License Type</label>
               <select id="licenseSelect" class="license-select">
                 <option value="regular">Regular License - $79.00</option>
-                <option value="extended">Extended License - $299.00</option>
+                <option value="extended">Extended License - $237.00</option>
               </select>
               <p class="license-info">
                 <i class="fa-solid fa-circle-info"></i>
@@ -280,7 +217,6 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="btn btn-outline btn-full">View Profile</a>
           </div>
         </div>
       </div>
@@ -288,55 +224,14 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer>
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <i class="fa-solid fa-rocket"></i>
-            <span>LaunchPoint</span>
-          </div>
-          <p class="footer-tagline">Launch your digital products marketplace</p>
-        </div>
-
-        <div class="footer-section">
-          <h4>Product</h4>
-          <ul class="footer-links">
-            <li><a href="#marketplace">Marketplace</a></li>
-            <li><a href="#categories">Categories</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#features">Features</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4>Company</h4>
-          <ul class="footer-links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4>Legal</h4>
-          <ul class="footer-links">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">License</a></li>
-            <li><a href="#">Refund Policy</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
+      <div class="footer-content">
         <p>&copy; 2025 LaunchPoint. All rights reserved.</p>
-        <div class="social-links">
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <div class="footer-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Contact</a>
         </div>
       </div>
     </div>

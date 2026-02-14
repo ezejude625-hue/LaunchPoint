@@ -40,39 +40,130 @@ body {
    ==================================== */
 
 header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
     user-select: none;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
-    z-index: 1000;
-    animation: slideDown 0.5s ease-out;
+    position: sticky;
 }
 
-@keyframes slideDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.header-content {
+.nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 4.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: var(--foreground);
+    /* padding: 1rem 2rem; */
+    padding: 1rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.menuBtn {
+    font-size: 28px;
+    /* makes the icon bigger */
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    /* curved edges */
+    background: #f2f2f2;
+    border: none;
+    cursor: pointer;
+    transform: scaleX(1.1);
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.menuBtn:focus {
+    outline: none;
+    outline: 2px solid var(--foreground);
+}
+
+/* MENU BASE */
+.menu {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.menu.open {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.menu li a {
+    display: block;
+    padding: 14px;
+    margin: 0.2rem;
+    font-weight: 400;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--foreground);
+    transition: all 0.3s ease;
+}
+
+.menu li button {
+    width: 100%;
+    display: block;
+    padding: 14px;
+    margin: 0.2rem;
+    text-align: left;
+    border: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.menu li a:hover {
+    background: rgba(65, 105, 225, 0.1);
+    color: var(--primary);
+}
+
+.menu li button:hover {
+    background: rgba(65, 105, 225, 0.1);
+    color: var(--primary);
+}
+
+.menu li a.active {
+    background: var(--primary);
+    color: white;
+}
+
+.menu li button.active {
+    background: var(--primary);
+    color: white;
+}
+
+.menu li button {
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+    justify-content: left;
+}
+
+
+
+/* ===== DESKTOP ===== */
+@media (min-width: 768px) {
+    .menuBtn {
+        display: none;
+    }
+
+    .menu {
+        max-height: none;
+        opacity: 1;
+        width: auto;
+        flex-direction: row;
+        gap: 20px;
+    }
 }
 
 .logo {
@@ -85,67 +176,6 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
-
-.nav-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-nav {
-    display: flex;
-    gap: 2rem;
-}
-
-nav a {
-    color: var(--foreground);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--primary);
-}
-
-.auth-btns {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.cart-icon-btn {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
-    background: var(--card-bg);
-    color: var(--foreground);
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.cart-icon-btn:hover {
-    background: var(--primary);
-    color: white;
-}
-
-.cart-badge {
-    position: absolute;
-    top: -0.25rem;
-    right: -0.25rem;
-    background: var(--accent);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.125rem 0.375rem;
-    border-radius: 999px;
-    min-width: 1.25rem;
-    text-align: center;
 }
 
 .btn {
@@ -177,14 +207,6 @@ nav a:hover {
 
 .btn-ghost:hover {
     background: rgba(23, 162, 184, 0.2);
-}
-
-#menu {
-    display: none;
-}
-
-.icon {
-    display: none;
 }
 
 /* ====================================

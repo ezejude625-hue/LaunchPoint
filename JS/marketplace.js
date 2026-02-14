@@ -73,7 +73,7 @@ const productCount = document.getElementById('product-count');
 const sortSelect = document.getElementById('sort-select');
 const applyFiltersBtn = document.getElementById('apply-filters');
 const clearFiltersBtn = document.getElementById('clear-filters');
-const cartBadge = document.getElementById('cart-badge');
+const cartBadge = document.getElementById('cartBadge');
 
 // ---- Render Products ----
 function renderProducts() {
@@ -146,15 +146,15 @@ function addToCart(productId) {
   updateCartBadge();
 }
 
-// ---- Update Cart Badge ----
+// Update cart count
 function updateCartBadge() {
-  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  
-  if (cartBadge) {
-    cartBadge.textContent = totalItems;
-    cartBadge.style.display = totalItems > 0 ? 'flex' : 'none';
-  }
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    
+    const cartBadgeElement = document.getElementById('cartBadge');
+    if (cartBadgeElement) {
+        cartBadgeElement.textContent = totalItems;
+    }
 }
 
 // ---- Apply Filters ----
@@ -240,4 +240,78 @@ if (sortSelect) {
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   updateCartBadge();
+});
+
+// Navigation menu handlers
+const menu = document.getElementById("menu");
+
+function toggleMenu() {
+    menu.classList.toggle("open");
+}
+
+function closeMenu() {
+    menu.classList.remove("open");
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    const nav = document.querySelector('.nav');
+    const menuBtn = document.querySelector('.menuBtn');
+    
+    if (menu && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeMenu();
+    }
+});
+
+// Close menu on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && menu) {
+        closeMenu();
+    }
+});
+
+// ====================================
+// ACTIVE MENU LINK HIGHLIGHTING
+// ====================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Get current page URL
+    const currentPage = window.location.pathname;
+    
+    // Get all menu links
+    const menuLinks = document.querySelectorAll('.menu a');
+    
+    menuLinks.forEach(link => {
+        // Get the href attribute
+        const linkPath = link.getAttribute('href');
+        
+        // Check if current page matches the link
+        if (currentPage.includes(linkPath) && linkPath !== '#') {
+            link.classList.add('active');
+        }
+        
+        // Special case for homepage sections (features, pricing, etc.)
+        if (currentPage.includes('homepage.html') && linkPath.startsWith('#')) {
+            // Highlight based on scroll position or hash
+            if (window.location.hash === linkPath) {
+                link.classList.add('active');
+            }
+        }
+    });
+    
+    // Handle hash changes for homepage sections
+    window.addEventListener('hashchange', () => {
+        menuLinks.forEach(link => {
+            if (link.getAttribute('href').startsWith('#')) {
+                link.classList.remove('active');
+            }
+        });
+        
+        const currentHash = window.location.hash;
+        menuLinks.forEach(link => {
+            if (link.getAttribute('href') === currentHash) {
+                link.classList.add('active');
+            }
+        });
+    });
 });

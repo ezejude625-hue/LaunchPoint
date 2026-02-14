@@ -26,7 +26,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ================== //
 // MOBILE MENU TOGGLE //
 // ================== //
-
+/*
 const menu = document.getElementById("menu");
 
 function toggleMenu() {
@@ -40,7 +40,7 @@ function closeMenu() {
     menu.classList.remove("open");
     menu.setAttribute("aria-expanded", "false");
 }
-
+*/
 
 // ---- Scroll Animation Observer ----
 const observerOptions = {
@@ -594,3 +594,14 @@ document.getElementById('logoutBtn')?.addEventListener('click', function() {
         window.location.href = '/index.html';
     }
 });
+
+// Navigation menu handlers
+const menu = document.getElementById("menu");
+
+function toggleMenu() {
+    menu.classList.toggle("open");
+}
+
+function closeMenu() {
+    menu.classList.remove("open");
+}

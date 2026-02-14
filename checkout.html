@@ -27,21 +27,25 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="logo"><i class="fa-solid fa-rocket"></i> LaunchPoint</div>
-            <input type="checkbox" id="menu">
-            <label for="menu" class="icon">&#9776;</label>
-            <div class="nav-wrapper">
-                <nav>
-                    <a href="/homepage.html"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
-                    <a href="/marketplace.html"><i class="fa-solid fa-store"></i>&nbsp;Marketplace</a>
-                    <a href="/cart.html"><i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart</a>
-                    <a href=""></a>
-                </nav>
+        <nav class="nav">
+            <div class="logo">
+                <i class="fa-solid fa-rocket"></i>
+                <span>LaunchPoint</span>
             </div>
-        </div>
+            <button class="menuBtn" id="menuBtn" onclick="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
+            <ul class="menu" id="menu" aria-expanded="false">
+                <li><a href="/homepage.html" onclick="closeMenu()"><i class="fa-solid fa-house"></i>&nbsp;Home</a>
+                </li>
+                <li><a href="/marketplace.html" onclick="closeMenu()"><i
+                            class="fa-solid fa-store"></i>&nbsp;Marketplace</a>
+                </li>
+                <li><a href="/cart.html" onclick="closeMenu()"><i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
+    <!-- main -->
     <main>
         <div class="container">
             <!-- Progress Indicator -->

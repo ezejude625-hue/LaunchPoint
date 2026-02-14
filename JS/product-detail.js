@@ -1,20 +1,56 @@
-// ====================================== //
-// LAUNCHPOINT - USER PRODUCT DETAIL PAGE //
-// ====================================== //
+// ====================================
+// MOBILE MENU TOGGLE
+// ====================================
 
-// All Available Products (matching homepage features)
-const allProducts = {
+const menu = document.getElementById("menu");
+
+function toggleMenu() {
+    menu.classList.toggle("open");
+    menu.classList.contains("open") 
+        ? menu.setAttribute("aria-expanded", "true") 
+        : menu.setAttribute("aria-expanded", "false");
+}
+
+function closeMenu() {
+    menu.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    const nav = document.querySelector('.nav');
+    const menuBtn = document.querySelector('.menu-btn');
+    
+    if (menu && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeMenu();
+    }
+});
+
+// Close menu on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && menu) {
+        closeMenu();
+    }
+});
+
+// ====================================
+// LAUNCHPOINT - PRODUCT DETAIL
+// ====================================
+
+// Products Database (MATCHING HOMEPAGE FEATURES EXACTLY)
+const productsDatabase = {
     1: {
         id: 1,
         name: 'Landing Page Templates',
         category: 'UI Kits & Templates',
-        price: 79.00,
+        price: 79,
         seller: 'Tech Innovators Inc.',
         sellerInitials: 'TI',
         rating: 4.8,
         reviews: 24,
         sales: 487,
         dateAdded: '2024-10-26',
+        image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=450&fit=crop',
         icon: 'fa-file-lines',
         screenshots: [
             { id: 1, title: 'Homepage Design', icon: 'fa-house' },
@@ -49,14 +85,15 @@ const allProducts = {
     2: {
         id: 2,
         name: 'Branding Tools',
-        category: 'UI Kits & Templates',
-        price: 149.00,
+        category: 'Design & Branding',
+        price: 149,
         seller: 'Creative Scripts Co.',
         sellerInitials: 'CS',
         rating: 4.9,
         reviews: 31,
         sales: 298,
         dateAdded: '2024-09-15',
+        image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=450&fit=crop',
         icon: 'fa-palette',
         screenshots: [
             { id: 1, title: 'Logo Builder', icon: 'fa-copyright' },
@@ -92,13 +129,14 @@ const allProducts = {
         id: 3,
         name: 'Marketing Integrations',
         category: 'Scripts & Code',
-        price: 99.00,
+        price: 99,
         seller: 'AI Solutions Hub',
         sellerInitials: 'AS',
         rating: 4.7,
         reviews: 45,
         sales: 521,
         dateAdded: '2024-08-20',
+        image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=450&fit=crop',
         icon: 'fa-plug',
         screenshots: [
             { id: 1, title: 'Email Integration', icon: 'fa-envelope' },
@@ -133,14 +171,15 @@ const allProducts = {
     4: {
         id: 4,
         name: 'Lead Generation',
-        category: 'UI Kits & Templates',
-        price: 89.00,
+        category: 'Marketing Tools',
+        price: 89,
         seller: 'Web Wizards',
         sellerInitials: 'WW',
         rating: 4.8,
         reviews: 67,
         sales: 634,
         dateAdded: '2024-07-10',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop',
         icon: 'fa-bullseye',
         screenshots: [
             { id: 1, title: 'Form Builder', icon: 'fa-file-lines' },
@@ -175,14 +214,15 @@ const allProducts = {
     5: {
         id: 5,
         name: 'SEO & Performance',
-        category: 'Scripts & Code',
-        price: 129.00,
+        category: 'Optimization Tools',
+        price: 129,
         seller: 'Code Masters Studio',
         sellerInitials: 'CM',
         rating: 4.9,
         reviews: 89,
         sales: 743,
         dateAdded: '2024-06-05',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop',
         icon: 'fa-bolt',
         screenshots: [
             { id: 1, title: 'SEO Optimizer', icon: 'fa-magnifying-glass' },
@@ -217,14 +257,15 @@ const allProducts = {
     6: {
         id: 6,
         name: 'E-Commerce Ready',
-        category: 'UI Kits & Templates',
-        price: 199.00,
+        category: 'E-Commerce Solutions',
+        price: 199,
         seller: 'Digital Marketplace Pro',
         sellerInitials: 'DM',
         rating: 4.8,
         reviews: 52,
         sales: 412,
         dateAdded: '2024-05-15',
+        image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=450&fit=crop',
         icon: 'fa-bag-shopping',
         screenshots: [
             { id: 1, title: 'Product Pages', icon: 'fa-box' },
@@ -261,32 +302,18 @@ const allProducts = {
 
 // Current product
 let currentProduct = null;
-let cart = JSON.parse(localStorage.getItem('launchpoint_cart') || '[]');
 let selectedLicense = 'regular';
 
 // Get product ID from URL
 function getProductIdFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('id');
+    return urlParams.get('id') || '1';
 }
 
 // Load product
 function loadProduct() {
     const productId = getProductIdFromURL();
-    
-    if (productId && allProducts[productId]) {
-        currentProduct = allProducts[productId];
-    } else {
-        // Check localStorage
-        const stored = localStorage.getItem('launchpoint_user_product');
-        if (stored) {
-            const storedProduct = JSON.parse(stored);
-            currentProduct = allProducts[storedProduct.id] || allProducts[1];
-        } else {
-            currentProduct = allProducts[1];
-        }
-    }
-    
+    currentProduct = productsDatabase[productId] || productsDatabase[1];
     return currentProduct;
 }
 
@@ -304,6 +331,11 @@ function formatDate(dateString) {
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
+// Get current price based on license
+function getCurrentPrice() {
+    return selectedLicense === 'extended' ? currentProduct.price * 3 : currentProduct.price;
+}
+
 // Update page content
 function updatePageContent() {
     document.getElementById('productTitle').textContent = currentProduct.name;
@@ -318,8 +350,6 @@ function updatePageContent() {
     document.getElementById('productDate').textContent = formatDate(currentProduct.dateAdded);
     document.getElementById('sellerNameCard').textContent = currentProduct.seller;
     document.getElementById('sellerAvatar').textContent = currentProduct.sellerInitials;
-    document.getElementById('reviewRatingScore').textContent = currentProduct.rating;
-    document.getElementById('reviewTotalCount').textContent = currentProduct.reviews;
     
     // Update license select options
     const licenseSelect = document.getElementById('licenseSelect');
@@ -330,32 +360,28 @@ function updatePageContent() {
         `;
     }
     
-    // Update document title
     document.title = `${currentProduct.name} - LaunchPoint`;
 }
 
-// Render screenshots with Font Awesome icons
+// Render screenshots
 function renderScreenshots() {
     const mainImage = document.getElementById('mainImage');
     const thumbnailsContainer = document.getElementById('thumbnails');
     
-    // Set first screenshot icon as main
-    mainImage.innerHTML = `<i class="fa-solid ${currentProduct.screenshots[0].icon}" style="font-size: 5rem; color: white;"></i>`;
+    mainImage.innerHTML = `<i class="fa-solid ${currentProduct.screenshots[0].icon}" style="font-size: 4rem;"></i>`;
     
-    // Render thumbnails with icons
     thumbnailsContainer.innerHTML = currentProduct.screenshots.map((screenshot, index) => `
         <div class="thumbnail ${index === 0 ? 'active' : ''}" data-index="${index}">
             <i class="fa-solid ${screenshot.icon}"></i>
         </div>
     `).join('');
     
-    // Add click listeners
     document.querySelectorAll('.thumbnail').forEach(thumb => {
         thumb.addEventListener('click', function() {
             const index = parseInt(this.getAttribute('data-index'));
             document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
             this.classList.add('active');
-            mainImage.innerHTML = `<i class="fa-solid ${currentProduct.screenshots[index].icon}" style="font-size: 5rem; color: white;"></i>`;
+            mainImage.innerHTML = `<i class="fa-solid ${currentProduct.screenshots[index].icon}" style="font-size: 4rem;"></i>`;
         });
     });
 }
@@ -395,19 +421,6 @@ function renderFiles() {
     `).join('');
 }
 
-// Update cart count
-function updateCartCount() {
-    const cartCountElement = document.getElementById('cartCount');
-    if (cartCountElement) {
-        cartCountElement.textContent = cart.length;
-    }
-}
-
-// Get current price based on license
-function getCurrentPrice() {
-    return selectedLicense === 'extended' ? currentProduct.price * 3 : currentProduct.price;
-}
-
 // Tab switching
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', function() {
@@ -429,7 +442,6 @@ if (licenseSelect) {
         const price = getCurrentPrice();
         document.getElementById('productPrice').textContent = formatCurrency(price);
         
-        // Update license info text
         const licenseInfo = document.querySelector('.license-info');
         if (licenseInfo) {
             if (selectedLicense === 'extended') {
@@ -441,32 +453,53 @@ if (licenseSelect) {
     });
 }
 
-// Buy now - Navigate to checkout
+// ====================================
+// CART 
+// ====================================
+
+// Update cart count
+function updateCartCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    
+    const cartCountElement = document.getElementById('cartCount');
+    if (cartCountElement) {
+        cartCountElement.textContent = totalItems;
+    }
+}
+
+// Buy now
 const buyNowBtn = document.getElementById('buyNowBtn');
 if (buyNowBtn) {
     buyNowBtn.addEventListener('click', function() {
-        // Create cart item with current license
-        const cartItem = {
-            id: currentProduct.id,
-            name: currentProduct.name,
-            price: getCurrentPrice(),
-            category: currentProduct.category,
-            license: selectedLicense,
-            icon: currentProduct.icon
-        };
+        const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
         
-        // Clear cart and add this item
-        cart = [cartItem];
-        localStorage.setItem('launchpoint_cart', JSON.stringify(cart));
+        const existingItem = cartItems.find(item => 
+            item.id === currentProduct.id && item.license === selectedLicense
+        );
         
-        // Show success message with animation
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cartItems.push({
+                id: currentProduct.id,
+                name: currentProduct.name,
+                price: getCurrentPrice(),
+                image: currentProduct.image,
+                category: currentProduct.category,
+                license: selectedLicense,
+                quantity: 1
+            });
+        }
+        
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
         const originalText = this.innerHTML;
-        this.innerHTML = '<i class="fa-solid fa-check"></i> Redirecting to Checkout...';
+        this.innerHTML = '<i class="fa-solid fa-check"></i> Redirecting...';
         this.style.background = 'linear-gradient(135deg, #10b981, #059669)';
         
-        // Redirect after short delay
         setTimeout(() => {
-            window.location.href = 'checkout.html';
+            window.location.href = '/checkout.html';
         }, 800);
     });
 }
@@ -475,52 +508,51 @@ if (buyNowBtn) {
 const addToCartBtn = document.getElementById('addToCartBtn');
 if (addToCartBtn) {
     addToCartBtn.addEventListener('click', function() {
-        // Check if item already exists
-        const existingIndex = cart.findIndex(item => 
+        const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+        
+        const existingItem = cartItems.find(item => 
             item.id === currentProduct.id && item.license === selectedLicense
         );
         
-        if (existingIndex !== -1) {
-            // Item already in cart
+        if (existingItem) {
+            existingItem.quantity += 1;
+            
             const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fa-solid fa-check"></i> Already in Cart!';
-            this.style.borderColor = '#f59e0b';
-            this.style.color = '#f59e0b';
-            
-            setTimeout(() => {
-                this.innerHTML = originalText;
-                this.style.borderColor = '';
-                this.style.color = '';
-            }, 2000);
-        } else {
-            // Add to cart
-            const cartItem = {
-                id: currentProduct.id,
-                name: currentProduct.name,
-                price: getCurrentPrice(),
-                category: currentProduct.category,
-                license: selectedLicense,
-                icon: currentProduct.icon
-            };
-            
-            cart.push(cartItem);
-            localStorage.setItem('launchpoint_cart', JSON.stringify(cart));
-            updateCartCount();
-            
-            // Success feedback with animation
-            const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fa-solid fa-check"></i> Added to Cart!';
+            this.innerHTML = '<i class="fa-solid fa-check"></i> Quantity Updated!';
             this.style.background = 'linear-gradient(135deg, #10b981, #059669)';
             this.style.color = 'white';
-            this.style.borderColor = '#10b981';
             
             setTimeout(() => {
                 this.innerHTML = originalText;
                 this.style.background = '';
                 this.style.color = '';
-                this.style.borderColor = '';
+            }, 2000);
+        } else {
+            cartItems.push({
+                id: currentProduct.id,
+                name: currentProduct.name,
+                price: getCurrentPrice(),
+                image: currentProduct.image,
+                category: currentProduct.category,
+                license: selectedLicense,
+                quantity: 1
+            });
+            
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fa-solid fa-check"></i> Added to Cart!';
+            this.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            this.style.color = 'white';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.background = '';
+                this.style.color = '';
             }, 2000);
         }
+        
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateCartCount();
+        alert(`Added "${currentProduct.name}" to cart!`);
     });
 }
 
@@ -528,7 +560,7 @@ if (addToCartBtn) {
 const cartBtn = document.getElementById('cartBtn');
 if (cartBtn) {
     cartBtn.addEventListener('click', function() {
-        window.location.href = 'cart.html';
+        window.location.href = '/cart.html';
     });
 }
 
@@ -542,7 +574,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFiles();
     updateCartCount();
     
-    console.log('Product detail page initialized');
+    console.log('Product detail page loaded');
     console.log('Current Product:', currentProduct.name);
-    console.log('Cart Items:', cart.length);
 });

@@ -144,6 +144,17 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCheckout();
 });
 
+// Navigation menu handlers
+const menu = document.getElementById("menu");
+
+function toggleMenu() {
+    menu.classList.toggle("open");
+}
+
+function closeMenu() {
+    menu.classList.remove("open");
+}
+
 
 // ----- Showing Prouct Detail from homepage -----//
 // LAUNCHPOINT - CHECKOUT PAGE 

@@ -317,3 +317,38 @@ document.addEventListener('DOMContentLoaded', () => {
     
     console.log('Account settings loaded');
 });
+
+// ====================================
+// MOBILE MENU TOGGLE
+// ====================================
+
+const menu = document.getElementById("menu");
+
+function toggleMenu() {
+    menu.classList.toggle("open");
+    menu.classList.contains("open") 
+        ? menu.setAttribute("aria-expanded", "true") 
+        : menu.setAttribute("aria-expanded", "false");
+}
+
+function closeMenu() {
+    menu.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    const nav = document.querySelector('.nav');
+    const menuBtn = document.querySelector('.menu-btn');
+    
+    if (menu && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeMenu();
+    }
+});
+
+// Close menu on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && menu) {
+        closeMenu();
+    }
+});

@@ -247,6 +247,17 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCartDisplay();
 });
 
+// Navigation menu handlers
+const menu = document.getElementById("menu");
+
+function toggleMenu() {
+    menu.classList.toggle("open");
+}
+
+function closeMenu() {
+    menu.classList.remove("open");
+}
+
 
 // ----- Showing Prouct Detail from homepage -----//
 // Sample product images/icons

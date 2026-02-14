@@ -24,28 +24,27 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="header-content">
+        <nav class="nav">
             <div class="logo">
                 <i class="fa-solid fa-rocket"></i>
                 <span>LaunchPoint</span>
             </div>
-            <input type="checkbox" id="menu">
-            <label for="menu" class="icon">&#9776;</label>
-            <div class="nav-wrapper">
-                <nav>
-                    <a href="/cart.html"><i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart</a>
-                    <a href="/user/dashboard.html"><i class="fa-solid fa-gauge"></i>&nbsp;Dashboard</a>
-                </nav>
-                <div class="auth-btns">
-                    <a href="marketplace.html" class="btn btn-ghost">
-                        <i class="fa-solid fa-store"></i>
-                        Marketplace
-                    </a>
-                    <button class="btn btn-primary" id="logoutBtn"><i
-                            class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;Logout</button>
-                </div>
-            </div>
-        </div>
+            <button class="menuBtn" id="menuBtn" onclick="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
+            <ul class="menu" id="menu" aria-expanded="false">
+                <li><a href="#features" onclick="closeMenu()">Features</a></li>
+                <li><a href="#how-it-works" onclick="closeMenu()">How It Works</a></li>
+                <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
+                <li><a href="#testimonials" onclick="closeMenu()">Testimonials</a></li>
+                <li><a href="/cart.html" onclick="closeMenu()"><i class="fa-solid fa-shopping-cart"></i>&nbsp;Cart</a>
+                </li>
+                <li><a href="/user/dashboard.html" onclick="closeMenu()"><i
+                            class="fa-solid fa-gauge"></i>&nbsp;Dashboard</a></li>
+                <li><a href="marketplace.html" onclick="closeMenu()"><i
+                            class="fa-solid fa-store"></i>&nbsp;Marketplace</a></li>
+                <li><button class="btn btn-primary" id="logoutBtn"><i
+                            class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;Logout</button></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Hero Section -->

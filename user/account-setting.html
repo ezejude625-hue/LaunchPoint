@@ -23,18 +23,28 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="header-content">
-            <a href="homepage.html" class="logo">
-                <i class="fa-solid fa-rocket"></i>
-                <span>LaunchPoint</span>
-            </a>
-            <div class="header-actions">
-                <a href="/user/dashboard.html" class="btn btn-ghost">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    Back to Dashboard
-                </a>
+        <nav class="nav">
+            <div class="logo">
+                <i class="fa-solid fa-rocket"></i> LaunchPoint
             </div>
-        </div>
+
+            <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
+
+            <ul id="menu" class="menu" aria-expanded="false">
+                <li><a href="dashboard.html" onclick="closeMenu()"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+                <li><a href="/marketplace.html" onclick="closeMenu()"><i class="fa-solid fa-store"></i> Marketplace</a>
+                </li>
+                <li><a href="wishlist.html" onclick="closeMenu()"><i class="fa-solid fa-heart"></i> Wishlist</a></li>
+                <li><a href="account-setting.html" onclick="closeMenu()" class="active"><i class="fa-solid fa-user"></i>
+                        Account</a></li>
+                <li>
+                    <button class="btn btn-ghost" id="cartBtnHeader"
+                        onclick="window.location.href='/cart.html'; closeMenu()">
+                        <i class="fa-solid fa-shopping-cart"></i> Cart
+                    </button>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Main Content -->
